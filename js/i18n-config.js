@@ -1,7 +1,7 @@
 const supportedLanguages = ['en-US', 'pt-BR'];
 
 async function loadTranslations(lng) {
-  const response = await fetch(`/data/i18n/${lng}.json`);
+  const response = await fetch(`./data/i18n/${lng}.json`);
   if (!response.ok) throw new Error(`Failed to load translations for ${lng}`);
   return response.json();
 }
