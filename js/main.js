@@ -93,7 +93,7 @@ function setupLanguageSwitcher() {
 
 async function loadResume() {
   try {
-    const response = await fetch('/data/resume.json');
+    const response = await fetch('./data/resume.json');
     if (!response.ok) throw new Error('Failed to load resume.json');
 
     const resumeData = await response.json();
