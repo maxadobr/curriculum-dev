@@ -1,64 +1,360 @@
-:root {
-  /* Ayu Dark Mode - Default */
-  --background-color: #0a0e14;
-  --text-color: #c5c5c5;
-  --primary-color: #ff8f40;
-  --secondary-color: #5ad4e6;
-  --accent-color: #a37acc;
-  --border-color: #1a1f26;
-  --card-background: #161b22;
-  --shadow-color: rgba(0, 0, 0, 0.2);
+/* ==========================================
+   MAIN CONTAINER & LAYOUT
+   ========================================== */
+
+#resume-container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--spacing-md);
+  background-color: var(--bg-secondary);
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    /* Ayu Light Mode - Applied if user prefers light */
-    --background-color: #fafafa;
-    --text-color: #333333;
-    --primary-color: #ff8f40; /* A warm orange, common in Ayu */
-    --secondary-color: #5ad4e6; /* A light blue/cyan */
-    --accent-color: #a37acc; /* A purple accent */
-    --border-color: #e0e0e0;
-    --card-background: #ffffff;
-    --shadow-color: rgba(0, 0, 0, 0.05);
+.a4-page {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* ==========================================
+   HEADER
+   ========================================== */
+
+.header {
+  text-align: center;
+  margin-bottom: var(--spacing-lg);
+}
+
+#name {
+  font-size: var(--font-size-h1);
+  color: var(--text-heading);
+  margin-bottom: var(--spacing-sm);
+}
+
+.divider {
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent-orange), var(--accent-blue));
+  margin: var(--spacing-sm) auto;
+  border-radius: 2px;
+}
+
+/* ==========================================
+   SECTIONS
+   ========================================== */
+
+.section {
+  margin-bottom: var(--section-gap);
+}
+
+section h2 {
+  color: var(--text-heading);
+  margin-bottom: var(--spacing-md);
+  padding-bottom: var(--spacing-xs);
+  border-bottom: 1px solid var(--divider-color);
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* ==========================================
+   CONTACT COMPACT
+   ========================================== */
+
+.persona-info-compact-section {
+  margin-bottom: var(--spacing-md);
+}
+
+#contact-compact-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--spacing-sm) var(--spacing-md);
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+}
+
+#contact-compact-list>* {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+/* ==========================================
+   ABOUT SECTION
+   ========================================== */
+
+.about-section {
+  margin-bottom: var(--spacing-lg);
+}
+
+#about-me-container {
+  max-width: 100%;
+  color: var(--text-primary);
+  line-height: var(--line-height-base);
+}
+
+/* ==========================================
+   GRIDS - Projects, Skills, Education, etc.
+   ========================================== */
+
+.projects-grid,
+.skills-grid,
+.education-grid,
+.experience-grid,
+.professional-skills-grid,
+.languages-grid,
+.personal-info-grid,
+.availability-grid,
+.goals-grid,
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-md);
+}
+
+/* ==========================================
+   PROJECT ITEMS
+   ========================================== */
+
+.project-item {
+  padding: var(--spacing-md);
+  border-left: 3px solid var(--accent-orange);
+  background-color: var(--bg-primary);
+}
+
+.project-item h3 {
+  color: var(--accent-orange);
+  margin-bottom: var(--spacing-xs);
+}
+
+.project-item p {
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+  margin-top: var(--spacing-xs);
+}
+
+/* ==========================================
+   SKILL ITEMS
+   ========================================== */
+
+.skill-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm);
+  background-color: var(--bg-primary);
+  border-radius: 4px;
+}
+
+.skill-item strong {
+  color: var(--text-heading);
+  font-size: var(--font-size-base);
+}
+
+/* ==========================================
+   EDUCATION & EXPERIENCE ITEMS
+   ========================================== */
+
+.education-item,
+.experience-item {
+  padding: var(--spacing-md);
+  border-left: 2px solid var(--accent-blue);
+  background-color: var(--bg-primary);
+}
+
+.education-item h3,
+.experience-item h3 {
+  color: var(--accent-blue);
+  margin-bottom: var(--spacing-xs);
+  font-size: var(--font-size-lg);
+}
+
+.education-item .period,
+.experience-item .period {
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+  font-style: italic;
+  margin-bottom: var(--spacing-xs);
+}
+
+.education-item p,
+.experience-item p {
+  color: var(--text-primary);
+  margin-top: var(--spacing-xs);
+}
+
+/* ==========================================
+   PROFESSIONAL SKILLS
+   ========================================== */
+
+.professional-skill-item {
+  padding: var(--spacing-sm);
+  background-color: var(--bg-primary);
+  border-left: 2px solid var(--accent-green);
+}
+
+.professional-skill-item strong {
+  color: var(--accent-green);
+  display: block;
+  margin-bottom: var(--spacing-xs);
+}
+
+/* ==========================================
+   LANGUAGES
+   ========================================== */
+
+.language-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-sm);
+  background-color: var(--bg-primary);
+  border-radius: 4px;
+}
+
+.language-item .language-name {
+  font-weight: 500;
+  color: var(--text-heading);
+}
+
+.language-item .language-level {
+  color: var(--accent-purple);
+  font-size: var(--font-size-sm);
+}
+
+/* ==========================================
+   PERSONAL INFO
+   ========================================== */
+
+.personal-info-item {
+  display: flex;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-xs) 0;
+  color: var(--text-primary);
+}
+
+.personal-info-item strong {
+  color: var(--text-heading);
+  min-width: 120px;
+}
+
+/* ==========================================
+   AVAILABILITY & CAREER GOALS
+   ========================================== */
+
+.availability-item,
+.goal-item {
+  padding: var(--spacing-sm);
+  background-color: var(--bg-primary);
+  border-radius: 4px;
+  color: var(--text-primary);
+}
+
+/* ==========================================
+   CONTACT
+   ========================================== */
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm);
+  background-color: var(--bg-primary);
+  border-radius: 4px;
+}
+
+.contact-item i {
+  color: var(--accent-blue);
+  width: 20px;
+}
+
+.contact-item a {
+  color: var(--accent-blue);
+}
+
+/* ==========================================
+   RESPONSIVE - TABLET & UP
+   ========================================== */
+
+@media (min-width: 768px) {
+  #resume-container {
+    padding: var(--spacing-xl);
+  }
+
+  .skills-grid,
+  .professional-skills-grid,
+  .languages-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
   }
 }
 
-/* Optional: Classes for manual theme toggling */
-body.light-mode {
-  --background-color: #fafafa;
-  --text-color: #333333;
-  --primary-color: #ff8f40;
-  --secondary-color: #5ad4e6;
-  --accent-color: #a37acc;
-  --border-color: #e0e0e0;
-  --card-background: #ffffff;
-  --shadow-color: rgba(0, 0, 0, 0.05);
-}
+/* ==========================================
+   PRINT STYLES
+   ========================================== */
 
-body.dark-mode {
-  --background-color: #0a0e14;
-  --text-color: #c5c5c5;
-  --primary-color: #ff8f40;
-  --secondary-color: #5ad4e6;
-  --accent-color: #a37acc;
-  --border-color: #1a1f26;
-  --card-background: #161b22;
-  --shadow-color: rgba(0, 0, 0, 0.2);
-}
+@media print {
+  #resume-container {
+    max-width: 100%;
+    padding: 10mm;
+    background-color: white;
+  }
 
-html, body {
-  background-color: var(--background-color);
-  color: var(--text-color);
-  margin: 0;
-  padding: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
+  .a4-page {
+    width: 210mm;
+    min-height: 297mm;
+  }
 
-#resume-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-  gap: 20px;
+  section {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  .divider {
+    background: #000000;
+  }
+
+  /* Ensure all text is black for ATS */
+  body,
+  p,
+  span,
+  div,
+  li,
+  td,
+  th {
+    color: #000000 !important;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: #000000 !important;
+  }
+
+  /* Keep accent colors subtle */
+  .project-item,
+  .education-item,
+  .experience-item,
+  .professional-skill-item {
+    border-left-color: #666666;
+  }
+
+  /* Simplify backgrounds */
+  .project-item,
+  .skill-item,
+  .education-item,
+  .experience-item,
+  .professional-skill-item,
+  .language-item,
+  .availability-item,
+  .goal-item,
+  .contact-item {
+    background-color: transparent;
+  }
 }

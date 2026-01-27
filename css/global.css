@@ -1,0 +1,175 @@
+/* CSS Reset */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Ayu Dark Theme - Default */
+:root {
+    /* Colors */
+    --bg-primary: #0a0e14;
+    --bg-secondary: #0f131a;
+    --text-primary: #b3b1ad;
+    --text-secondary: #8a8986;
+    --text-heading: #e6e1cf;
+    --accent-orange: #ff8f40;
+    --accent-blue: #59c2ff;
+    --accent-green: #aad94c;
+    --accent-purple: #d2a6ff;
+    --border-color: #1f2430;
+    --divider-color: #2d3340;
+
+    /* Spacing */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+
+    /* Typography */
+    --font-family: 'Roboto', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-size-base: 14px;
+    --font-size-sm: 12px;
+    --font-size-lg: 16px;
+    --font-size-xl: 18px;
+    --font-size-h1: 24px;
+    --font-size-h2: 18px;
+    --line-height-base: 1.5;
+    --line-height-heading: 1.3;
+
+    /* Layout */
+    --max-width: 210mm;
+    --section-gap: var(--spacing-lg);
+}
+
+/* Ayu Light Theme */
+@media (prefers-color-scheme: light) {
+    :root {
+        --bg-primary: #fafafa;
+        --bg-secondary: #ffffff;
+        --text-primary: #5c6166;
+        --text-secondary: #828c99;
+        --text-heading: #242936;
+        --accent-orange: #ff8f40;
+        --accent-blue: #399ee6;
+        --accent-green: #86b300;
+        --accent-purple: #a37acc;
+        --border-color: #e7e8e9;
+        --divider-color: #d9d9d9;
+    }
+}
+
+/* Base Typography */
+html {
+    font-size: var(--font-size-base);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-family: var(--font-family);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-base);
+    color: var(--text-primary);
+    background-color: var(--bg-primary);
+    min-height: 100vh;
+}
+
+/* Headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--text-heading);
+    line-height: var(--line-height-heading);
+    font-weight: 500;
+}
+
+h1 {
+    font-size: var(--font-size-h1);
+    font-weight: 700;
+}
+
+h2 {
+    font-size: var(--font-size-h2);
+    font-weight: 600;
+}
+
+h3 {
+    font-size: var(--font-size-lg);
+    font-weight: 500;
+}
+
+/* Links */
+a {
+    color: var(--accent-blue);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Lists */
+ul,
+ol {
+    list-style-position: inside;
+}
+
+/* Print Styles - Critical for PDF export */
+@media print {
+    :root {
+        /* Force light theme colors for print */
+        --bg-primary: #ffffff;
+        --bg-secondary: #ffffff;
+        --text-primary: #000000;
+        --text-secondary: #4a4a4a;
+        --text-heading: #000000;
+        --accent-orange: #ff8f40;
+        --accent-blue: #0066cc;
+        --accent-green: #009900;
+        --accent-purple: #8833cc;
+        --border-color: #cccccc;
+        --divider-color: #999999;
+    }
+
+    * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    body {
+        background: white;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Remove any shadows or backgrounds that might interfere with ATS */
+    * {
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    /* Ensure links are visible */
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    /* Page breaks */
+    h2,
+    h3 {
+        page-break-after: avoid;
+        break-after: avoid;
+    }
+
+    section {
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
+}
