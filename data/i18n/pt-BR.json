@@ -1,467 +1,410 @@
 {
-  "aboutMe": {
-    "professionalSummary": "Estudante de Engenharia de Software e Desenvolvedor Web em formação, buscando oportunidade de estágio em tecnologia. Desde 2017 tenho incorporado na minha rotina resolução de problemas complexos, gestão de projetos e otimização de sistemas. Habilidades estas que agora direciono para soluções de software eficientes, impulsionado por uma forte experiência com IA para aprendizado acelerado, revisão de código e prototipagem rápida.",
-    "objective": "Aplicar conhecimentos em web development para ganhar experiência prática e contribuir em equipe.",
-    "keyTechnologies": [
-      "HTML5",
-      "CSS3",
-      "JavaScript",
-      "Python",
-      "SQL",
-      "Git",
-      "Linux",
-      "IA Generativa (Claude, Gemini, GPT)"
-    ]
+  "section": {
+    "projects": "Projetos",
+    "skills": "Habilidades",
+    "education": "Educação",
+    "experience": "Experiência",
+    "professionalSkills": "Habilidades Profissionais",
+    "languages": "Idiomas",
+    "personalInfo": "Informações Pessoais",
+    "availability": "Disponibilidade",
+    "careerGoals": "Objetivos Profissionais",
+    "contact": "Contato",
+    "aboutMe": "Sobre Mim"
   },
-  "projects": [
-    {
-      "name": "Clarity Board",
-      "description": "Aplicação Web de gerenciamento e priorização de tarefas, focada em ajudar o usuário a decidir quais tarefas executar em seguida.",
-      "type": "Aplicação Web - Gerenciamento e Priorização de Tarefas",
-      "repository": "https://github.com/maxadobr/clarityboard",
-      "demoUrl": "https://maxadobr.github.io/clarityboard",
-      "status": "Em desenvolvimento",
-      "technologies": [
-        "HTML5",
-        "CSS3",
-        "JavaScript Vanilla",
-        "IndexedDB",
-        "JSON"
-      ],
-      "features": [
-        "Gerenciamento de projetos e tarefas",
-        "Sistema de categorias customizável",
-        "Sistema de pontuação e priorização dinâmica",
-        "Internacionalização i18n (Português e Inglês)",
-        "Import/Export de dados JSON",
-        "Armazenamento local com IndexedDB",
-        "Interface limpa e minimalista"
-      ],
-      "technicalHighlights": [
-        "Arquitetura totalmente client-side sem frameworks",
-        "Algoritmo de scoring dinâmico para priorização de tarefas",
-        "Sistema de i18n customizado",
-        "Database schema com IndexedDB",
-        "Design responsivo com CSS puro"
-      ]
+  "key": {
+    "professionalSummary": "Resumo Profissional",
+    "objective": "Objetivo",
+    "keyTechnologies": "Tecnologias Principais",
+    "name": "Nome",
+    "description": "Descrição",
+    "type": "Tipo",
+    "repository": "Repositório",
+    "demoUrl": "URL da Demo",
+    "status": "Status",
+    "technologies": "Tecnologias",
+    "features": "Funcionalidades",
+    "technicalHighlights": "Destaques Técnicos",
+    "usedApi": "API Utilizada",
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "markupAndStyleLanguages": "Linguagens de Marcação e Estilo",
+    "programmingLanguages": "Linguagens de Programação",
+    "uiDesign": "Design de UI",
+    "tools": "Ferramentas",
+    "concepts": "Conceitos",
+    "frameworks": "Frameworks",
+    "databases": "Bancos de Dados",
+    "computerScienceFundamentals": "Fundamentos de Ciência da Computação",
+    "developmentTools": "Ferramentas de Desenvolvimento",
+    "versionControl": "Controle de Versão",
+    "projectManagement": "Gestão de Projetos",
+    "operatingSystems": "Sistemas Operacionais",
+    "terminal": "Terminal",
+    "editors": "Editores",
+    "generativeAI": "IA Generativa",
+    "models": "Modelos",
+    "capabilities": "Capacidades",
+    "undergraduate": "Graduação",
+    "techCourses": "Cursos de Tecnologia",
+    "technicalCourses": "Cursos Técnicos",
+    "degree": "Curso",
+    "institution": "Instituição",
+    "duration": "Duração",
+    "startDate": "Data de Início",
+    "completionDate": "Data de Conclusão",
+    "expectedStartDate": "Data de Início Prevista",
+    "platform": "Plataforma",
+    "workload": "Carga Horária",
+    "focus": "Foco",
+    "mainTopics": "Tópicos Principais",
+    "year": "Ano",
+    "totalLevel": "Nível Total",
+    "company": "Empresa",
+    "role": "Cargo",
+    "period": "Período",
+    "start": "Início",
+    "end": "Fim",
+    "responsibilities": "Responsabilidades",
+    "keyAchievements": "Principais Conquistas",
+    "activities": "Atividades",
+    "specificSkills": "Habilidades Específicas",
+    "engineeringDesign": "Projeto de Engenharia",
+    "skills": "Habilidades",
+    "officeProductivity": "Produtividade Office",
+    "otherTools": "Outras Ferramentas",
+    "contact": "Contato",
+    "languages": "Idiomas",
+    "language": "Idioma",
+    "level": "Nível",
+    "fullName": "Nome Completo",
+    "month": "Mês",
+    "location": "Localização",
+    "city": "Cidade",
+    "state": "Estado",
+    "country": "País",
+    "email": "E-mail",
+    "linkedin": "LinkedIn",
+    "github": "GitHub",
+    "immediate": "Curto Prazo",
+    "mediumTerm": "Médio Prazo",
+    "longTerm": "Longo Prazo",
+    "weeklyHours": "Horas Semanais",
+    "modalities": "Modalidades",
+    "immediateStart": "Início Imediato"
+  },
+  "value": {
+    "status": {
+      "inDevelopment": "Em desenvolvimento",
+      "continuousMaintenance": "Em manutenção contínua",
+      "completed": "Concluído",
+      "inProgress": "Em andamento"
     },
-    {
-      "name": "Portfolio",
-      "description": "Portfolio pessoal para apresentar projetos e estudos mais recentes.",
-      "type": "Website - Portfolio Pessoal",
-      "repository": "https://github.com/maxadobr/maxadobr.github.io",
-      "demoUrl": "https://maxadobr.github.io",
-      "status": "Em manutenção contínua",
-      "technologies": [
-        "HTML5",
-        "CSS3",
-        "JavaScript"
-      ],
-      "features": [
-        "Dark/Light mode",
-        "Design responsivo",
-        "Apresentação de projetos",
-        "SEO sobre habilidades",
-        "Links para redes sociais e GitHub"
-      ]
+    "type": {
+      "selfEmployed": "Autônomo",
+      "contract": "Contrato"
     },
-    {
-      "name": "League of Building",
-      "description": "Aplicação criada para facilitar a montagem e o compartilhamento de builds do jogo League of Legends com amigos.",
-      "type": "Aplicação Web - Gaming Tool",
-      "repository": "https://github.com/maxadobr/leagueofbuilding",
-      "demoUrl": "https://maxadobr.github.io/leagueofbuilding",
-      "status": "Em desenvolvimento",
-      "technologies": [
-        "HTML5",
-        "CSS3",
-        "JavaScript",
-        "API Integration"
-      ],
-      "features": [
-        "Consumo de API Data Dragon - Riot Games",
-        "Criação dinâmica de itens",
-        "Montagem de builds customizadas",
-        "Compartilhamento de builds",
-        "Design responsivo"
-      ],
-      "usedApi": "Data Dragon API - Riot Games"
+    "level": {
+      "native": "Nativo",
+      "advancedSelfTaught": "Avançado (Autodidata)",
+      "basicBeginner": "Básico Iniciante"
     },
-    {
-      "name": "Pokedex",
-      "description": "Aplicação criada para exibir os pokémons e suas principais informações, consumindo dados diretamente da PokeAPI.",
-      "type": "Aplicação Web - Entretenimento",
-      "repository": "https://github.com/maxadobr/js-developer-pokedex",
-      "demoUrl": "https://maxadobr.github.io/js-developer-pokedex",
-      "status": "Concluído",
-      "technologies": [
-        "HTML5",
-        "CSS3",
-        "JavaScript",
-        "API Integration"
-      ],
-      "features": [
-        "Dark/Light mode",
-        "Consumo de API PokeAPI",
-        "Listagem dinâmica de pokémons",
-        "Exibição de informações detalhadas",
-        "Design responsivo",
-        "Cards interativos"
-      ],
-      "usedApi": "PokeAPI"
+    "modalities": {
+      "remote": "Remoto",
+      "hybrid": "Híbrido (Porto Feliz/Região)",
+      "onsite": "Presencial (Porto Feliz)"
+    },
+    "boolean": {
+      "true": "Sim",
+      "false": "Não"
     }
-  ],
-  "skills": {
-    "frontend": {
-      "markupAndStyleLanguages": [
+  },
+  "content": {
+    "aboutMe": {
+      "professionalSummary": "Estudante de Engenharia de Software e Desenvolvedor Web em formação, buscando oportunidade de estágio em tecnologia. Desde 2017 tenho incorporado na minha rotina resolução de problemas complexos, gestão de projetos e otimização de sistemas. Habilidades estas que agora direciono para soluções de software eficientes, impulsionado por uma forte experiência com IA para aprendizado acelerado, revisão de código e prototipagem rápida.",
+      "objective": "Aplicar conhecimentos em web development para ganhar experiência prática e contribuir em equipe.",
+      "keyTechnologies": [
         "HTML5",
-        "CSS3"
-      ],
-      "programmingLanguages": [
-        "JavaScript"
-      ],
-      "uiDesign": {
-        "tools": [
-          "Figma (prototipagem, wireframes)",
-          "Canva (apresentações, mockups)"
-        ],
-        "concepts": [
-          "Design responsivo",
-          "Princípios UI/UX",
-          "Tradução design → código"
-        ]
-      },
-      "concepts": [
-        "Responsividade",
-        "Acessibilidade",
-        "Consumo de API",
-        "SEO",
-        "Dark/Light mode"
-      ]
-    },
-    "backend": {
-      "languages": [
+        "CSS3",
+        "JavaScript",
         "Python",
-        "C"
-      ],
-      "frameworks": [
-        "Flask"
-      ],
-      "databases": [
-        "SQL"
-      ]
-    },
-    "computerScienceFundamentals": [
-      "Algoritmos",
-      "Memória",
-      "Estrutura de dados",
-      "Encapsulamento",
-      "Rede de computadores",
-      "Gerenciamento de recursos",
-      "Lógica de programação"
-    ],
-    "developmentTools": {
-      "versionControl": [
+        "SQL",
         "Git",
-        "GitHub"
-      ],
-      "projectManagement": [
-        "Trello",
-        "Jira",
-        "Kanban"
-      ],
-      "operatingSystems": [
-        "Linux/Unix",
-        "Windows",
-        "WSL2"
-      ],
-      "terminal": [
-        "Linha de comando",
-        "Bash Scripting",
-        "Administração de sistemas"
-      ],
-      "editors": [
-        "VSCode",
-        "VIM",
-        "Emacs"
-      ],
-      "generativeAI": {
-        "models": [
-          "Claude",
-          "Gemini",
-          "GPT"
-        ],
-        "tools": [
-          "Perplexity",
-          "Antigravity",
-          "Copilot (VSCode)"
-        ],
-        "capabilities": [
-          "Prompt engineering",
-          "Revisão e refatoração de código com IA",
-          "Geração e execução de testes unitários básicos",
-          "Pesquisa e aprendizado acelerado com referências",
-          "Prototipagem rápida (vibe coding)"
-        ]
-      }
-    }
-  },
-  "education": {
-    "undergraduate": {
-      "degree": "Engenharia de Software",
-      "institution": "UniCesumar",
-      "duration": "4 anos",
-      "startDate": "05/2025",
-      "completionDate": "04/2029",
-      "status": "Em andamento"
-    },
-    "techCourses": [
-      {
-        "name": "CS50x - Introduction to Computer Science",
-        "institution": "Harvard University Online / edX",
-        "completionDate": "12/2025",
-        "workload": "250h",
-        "status": "Concluído",
-        "focus": [
-          "C",
-          "Python",
-          "SQL",
-          "HTML",
-          "CSS",
-          "JavaScript",
-          "Flask",
-          "Algoritmos",
-          "Estruturas de dados"
-        ],
-        "mainTopics": [
-          "Scratch",
-          "Linguagem C",
-          "Arrays",
-          "Algorithms",
-          "Memory",
-          "Data Structures",
-          "Python",
-          "Artificial Intelligence",
-          "SQL",
-          "HTML",
-          "CSS",
-          "JavaScript",
-          "Flask",
-          "Cybersecurity"
-        ]
-      },
-      {
-        "name": "Bootcamp Santander Open Academy 2025 / DIO 2025 Front-End",
-        "completionDate": "08/2025",
-        "workload": "102h",
-        "focus": [
-          "HTML",
-          "Git",
-          "CSS",
-          "JavaScript"
-        ]
-      },
-      {
-        "name": "React - The library for web and native user interfaces",
-        "platform": "React Official Documentation",
-        "expectedStartDate": "02/2026",
-        "status": "Em andamento",
-        "focus": [
-          "React",
-          "Componentes",
-          "JSX",
-          "Hooks",
-          "State Management",
-          "UI Components"
-        ]
-      }
-    ],
-    "technicalCourses": [
-      {
-        "name": "Mecânica Geral",
-        "institution": "SENAI Itu",
-        "year": "2014",
-        "workload": "800h"
-      },
-      {
-        "name": "AutoCAD 2D",
-        "institution": "SENAI Itu",
-        "year": "2015",
-        "workload": "48h"
-      },
-      {
-        "name": "SolidWorks 3D",
-        "institution": "SENAI Itu",
-        "year": "2015",
-        "workload": "80h"
-      },
-      {
-        "name": "Desenhista Projetista Mecânico",
-        "institution": "SENAI Itu",
-        "year": "2016",
-        "workload": "240h"
-      },
-      {
-        "name": "Excel Básico + Avançado",
-        "institution": "SENAI Itu",
-        "year": "2016",
-        "workload": "80h",
-        "totalLevel": "80h"
-      }
-    ]
-  },
-  "experience": [
-    {
-      "type": "Autônomo",
-      "company": "Marcelo Machado - Projetos e Soluções",
-      "role": "Autônomo",
-      "period": {
-        "start": "05/2024",
-        "end": ""
-      },
-      "responsibilities": [
-        "Desenvolvimento de metodologias de trabalho e produtos especialmente em borracha de linha automotivo e construção civil, tornando os processos mais lucrativos, eficientes e auditáveis.",
-        "Facilitar a adesão de novos funcionários ao processo de produção por meio de uma documentação robusta para a parte técnica, mas simples e objetiva para o corpo fabril.",
-        "Diminuir as possibilidades de falha humana por meio dos sistemas."
+        "Linux",
+        "IA Generativa (Claude, Gemini, GPT)"
       ]
     },
-    {
-      "type": "Contrato",
-      "company": "Madox - Autopeças em Borracha ME",
-      "role": "Analista de Operações",
-      "period": {
-        "start": "09/2021",
-        "end": "01/2024"
+    "projects": {
+      "clarityBoard": {
+        "description": "Aplicação Web de gerenciamento e priorização de tarefas, focada em ajudar o usuário a decidir quais tarefas executar em seguida.",
+        "type": "Aplicação Web - Gerenciamento e Priorização de Tarefas",
+        "features": [
+          "Gerenciamento de projetos e tarefas",
+          "Sistema de categorias customizável",
+          "Sistema de pontuação e priorização dinâmica",
+          "Internacionalização i18n (Português e Inglês)",
+          "Import/Export de dados JSON",
+          "Armazenamento local com IndexedDB",
+          "Interface limpa e minimalista"
+        ],
+        "technicalHighlights": [
+          "Arquitetura totalmente client-side sem frameworks",
+          "Algoritmo de scoring dinâmico para priorização de tarefas",
+          "Sistema de i18n customizado",
+          "Database schema com IndexedDB",
+          "Design responsivo com CSS puro"
+        ]
       },
-      "responsibilities": [
-        "Desenvolver produtos de acordo com as necessidades do mercado.",
-        "Observar tendências do mercado automotivo de reposição.",
-        "Elaboração de fichas e desenhos técnicos.",
-        "Planejamento e controle de produção e custos."
-      ],
-      "keyAchievements": [
-        "Desenvolvi um sistema de controle de produção para otimizar o fluxo de trabalho e aumentar a produtividade e a previsibilidade.",
-        "Coordenei e participei ativamente do desenvolvimento de diversos produtos da linha automotiva, tendo contato direto com os clientes e fazendo com que seus requisitos e necessidades fossem atendidos.",
-        "Criei uma metodologia de análise de dados, cruzando múltiplas fontes para gerar insights e embasar decisões estratégicas na empresa."
-      ]
+      "portfolio": {
+        "description": "Portfolio pessoal para apresentar projetos e estudos mais recentes.",
+        "type": "Website - Portfolio Pessoal",
+        "features": [
+          "Dark/Light mode",
+          "Design responsivo",
+          "Apresentação de projetos",
+          "SEO sobre habilidades",
+          "Links para redes sociais e GitHub"
+        ]
+      },
+      "leagueOfBuilding": {
+        "description": "Aplicação criada para facilitar a montagem e o compartilhamento de builds do jogo League of Legends com amigos.",
+        "type": "Aplicação Web - Gaming Tool",
+        "features": [
+          "Consumo de API Data Dragon - Riot Games",
+          "Criação dinâmica de itens",
+          "Montagem de builds customizadas",
+          "Compartilhamento de builds",
+          "Design responsivo"
+        ]
+      },
+      "pokedex": {
+        "description": "Aplicação criada para exibir os pokémons e suas principais informações, consumindo dados diretamente da PokeAPI.",
+        "type": "Aplicação Web - Entretenimento",
+        "features": [
+          "Dark/Light mode",
+          "Consumo de API PokeAPI",
+          "Listagem dinâmica de pokémons",
+          "Exibição de informações detalhadas",
+          "Design responsivo",
+          "Cards interativos"
+        ]
+      }
     },
-    {
-      "type": "Contrato",
-      "company": "Neobor - Indústria de Artefatos de Borracha Ltda",
-      "role": "Desenvolvedor de produtos",
-      "period": {
-        "start": "04/2017",
-        "end": "04/2021",
+    "skills": {
+      "frontend": {
+        "uiDesign": {
+          "tools": [
+            "Figma (prototipagem, wireframes)",
+            "Canva (apresentações, mockups)"
+          ],
+          "concepts": [
+            "Design responsivo",
+            "Princípios UI/UX",
+            "Tradução design → código"
+          ]
+        },
+        "concepts": [
+          "Responsividade",
+          "Acessibilidade",
+          "Consumo de API",
+          "SEO",
+          "Dark/Light mode"
+        ]
+      },
+      "computerScienceFundamentals": [
+        "Algoritmos",
+        "Memória",
+        "Estrutura de dados",
+        "Encapsulamento",
+        "Rede de computadores",
+        "Gerenciamento de recursos",
+        "Lógica de programação"
+      ],
+      "developmentTools": {
+        "terminal": [
+          "Linha de comando",
+          "Bash Scripting",
+          "Administração de sistemas"
+        ],
+        "generativeAI": {
+          "capabilities": [
+            "Prompt engineering",
+            "Revisão e refatoração de código com IA",
+            "Geração e execução de testes unitários básicos",
+            "Pesquisa e aprendizado acelerado com referências",
+            "Prototipagem rápida (vibe coding)"
+          ]
+        }
+      }
+    },
+    "education": {
+      "undergraduate": {
+        "degree": "Engenharia de Software",
         "duration": "4 anos"
       },
-      "responsibilities": [
-        "Desenvolver itens e ferramentas para linhas de construção civil e automotiva.",
-        "Elaboração de fichas e desenhos técnicos para desenvolvimento, produção e controle de qualidade.",
-        "Cálculos e projeções para orçamentos e logística de produtos."
-      ],
-      "keyAchievements": [
-        "Reestruturei a arquitetura do sistema de códigos de produtos, aplicando uma nova lógica que permitiu a identificação precisa de itens em todos os setores da empresa.",
-        "Desenvolvi um processo de controle de qualidade sistematizado e à prova de erros por parte do operador, que eliminou a subjetividade da checagem e gerou economia de material e diminuiu desgaste entre os colaboradores.",
-        "Implementei um sistema de prototipagem virtual que reduziu em pelo menos 80% os custos com desenvolvimento de novos produtos.",
-        "Sugeri e participei da implementação de uma estrutura em Cloud para centralizar nosso trabalho, que anteriormente era feito numa rede local."
+      "techCourses": {
+        "cs50": {
+          "focus": [
+            "C",
+            "Python",
+            "SQL",
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "Flask",
+            "Algoritmos",
+            "Estruturas de dados"
+          ],
+          "mainTopics": [
+            "Scratch",
+            "Linguagem C",
+            "Arrays",
+            "Algorithms",
+            "Memory",
+            "Data Structures",
+            "Python",
+            "Artificial Intelligence",
+            "SQL",
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "Flask",
+            "Cybersecurity"
+          ]
+        },
+        "react": {
+          "focus": [
+            "React",
+            "Componentes",
+            "JSX",
+            "Hooks",
+            "State Management",
+            "UI Components"
+          ]
+        }
+      },
+      "technicalCourses": {
+        "generalMechanics": "Mecânica Geral",
+        "mechanicalDesign": "Desenhista Projetista Mecânico",
+        "excelBasicAdvanced": "Excel Básico + Avançado"
+      }
+    },
+    "experience": {
+      "selfEmployed": {
+        "type": "Autônomo",
+        "company": "Marcelo Machado - Projetos e Soluções",
+        "role": "Autônomo",
+        "responsibilities": [
+          "Desenvolvimento de metodologias de trabalho e produtos especialmente em borracha de linha automotivo e construção civil, tornando os processos mais lucrativos, eficientes e auditáveis.",
+          "Facilitar a adesão de novos funcionários ao processo de produção por meio de uma documentação robusta para a parte técnica, mas simples e objetiva para o corpo fabril.",
+          "Diminuir as possibilidades de falha humana por meio dos sistemas."
+        ]
+      },
+      "madox": {
+        "type": "Contrato",
+        "role": "Analista de Operações",
+        "responsibilities": [
+          "Desenvolver produtos de acordo com as necessidades do mercado.",
+          "Observar tendências do mercado automotivo de reposição.",
+          "Elaboração de fichas e desenhos técnicos.",
+          "Planejamento e controle de produção e custos."
+        ],
+        "keyAchievements": [
+          "Desenvolvi um sistema de controle de produção para otimizar o fluxo de trabalho e aumentar a produtividade e a previsibilidade.",
+          "Coordenei e participei ativamente do desenvolvimento de diversos produtos da linha automotiva, tendo contato direto com os clientes e fazendo com que seus requisitos e necessidades fossem atendidos.",
+          "Criei uma metodologia de análise de dados, cruzando múltiplas fontes para gerar insights e embasar decisões estratégicas na empresa."
+        ]
+      },
+      "neobor": {
+        "type": "Contrato",
+        "role": "Desenvolvedor de produtos",
+        "responsibilities": [
+          "Desenvolver itens e ferramentas para linhas de construção civil e automotiva.",
+          "Elaboração de fichas e desenhos técnicos para desenvolvimento, produção e controle de qualidade.",
+          "Cálculos e projeções para orçamentos e logística de produtos."
+        ],
+        "keyAchievements": [
+          "Reestruturei a arquitetura do sistema de códigos de produtos, aplicando uma nova lógica que permitiu a identificação precisa de itens em todos os setores da empresa.",
+          "Desenvolvi um processo de controle de qualidade sistematizado e à prova de erros por parte do operador, que eliminou a subjetividade da checagem e gerou economia de material e diminuiu desgaste entre os colaboradores.",
+          "Implementei um sistema de prototipagem virtual que reduziu em pelo menos 80% os custos com desenvolvimento de novos produtos.",
+          "Sugeri e participei da implementação de uma estrutura em Cloud para centralizar nosso trabalho, que anteriormente era feito numa rede local."
+        ]
+      },
+      "stemmann": {
+        "role": "Aprendiz Mecânico de Usinagem",
+        "activities": "Usinagem e acabamento de peças"
+      },
+      "fibratech": {
+        "role": "Aprendiz Eletricista Industrial",
+        "activities": "Manutenção de painéis elétricos, máquinas e configuração de inversores de potência"
+      }
+    },
+    "specificSkills": {
+      "engineeringDesign": {
+        "skills": [
+          "Desenhos técnicos 3D",
+          "Projetos mecânicos",
+          "Leitura e interpretação de desenho técnico",
+          "Modelagem 3D"
+        ]
+      },
+      "officeProductivity": {
+        "tools": [
+          "Excel Avançado",
+          "Pacote MS Office",
+          "Libre Office"
+        ]
+      },
+      "otherTools": [
+        "Documentação técnica"
       ]
     },
-    {
-      "type": "Contrato",
-      "company": "Stemmann - Equipamentos e Acessórios para Máquinas",
-      "role": "Aprendiz Mecânico de Usinagem",
-      "period": "2014-2015",
-      "activities": "Usinagem e acabamento de peças"
-    },
-    {
-      "company": "Fibratech Reciclagem Técnica",
-      "role": "Aprendiz Eletricista Industrial",
-      "period": "2013-2014",
-      "activities": "Manutenção de painéis elétricos, máquinas e configuração de inversores de potência"
-    }
-  ],
-  "specificSkills": {
-    "engineeringDesign": {
-      "tools": [
-        "AutoCAD 2D",
-        "SolidWorks 3D"
-      ],
-      "skills": [
-        "Desenhos técnicos 3D",
-        "Projetos mecânicos",
-        "Leitura e interpretação de desenho técnico",
-        "Modelagem 3D"
-      ]
-    },
-    "officeProductivity": {
-      "tools": [
-        "Excel Avançado",
-        "Pacote MS Office",
-        "Libre Office"
-      ]
-    },
-    "otherTools": [
-      "Documentação técnica"
-    ]
-  },
-  "professionalSkills": [
-    "Gestão de projetos",
-    "Resolução de problemas técnicos",
-    "Metodologia ágil",
-    "Análise de dados",
-    "Comunicação e colaboração",
-    "Aprendizado rápido (acelerado com IA)",
-    "Eficiência na resolução de problemas técnicos",
-    "Boa organização"
-  ],
-  "languages": [
-    {
-      "language": "Português",
-      "level": "Nativo"
-    },
-    {
-      "language": "Inglês",
-      "level": "Avançado (Autodidata)",
-      "skills": [
-        "Ler",
-        "Escrever",
-        "Ouvir",
-        "Falar"
-      ]
-    },
-    {
-      "language": "Alemão",
-      "level": "Básico Iniciante",
-      "institution": "Wizard Porto Feliz"
-    }
-  ],
-  "personalInfo": {
-    "fullName": "Marcelo Machado",
-    "year": 1997,
-    "month": 1,
-    "location": {
-      "city": "Porto Feliz",
-      "state": "São Paulo",
-      "country": "Brasil"
-    },
-    "contact": {
-      "email": "maxado.mdx@gmail.com",
-      "linkedin": "https://linkedin.com/in/maxadobr",
-      "github": "https://github.com/maxadobr"
-    }
-  },
-  "careerGoals": {
-    "immediate": "Conseguir oportunidade de estágio em desenvolvimento web.",
-    "mediumTerm": "Transicionar conhecimento de web para desenvolver aplicativos PC e Mobile.",
-    "longTerm": "Criar soluções que tenham o poder de entregar uma experiência prazerosa, eficiente e limpa ao usuário."
-  },
-  "availability": {
-    "weeklyHours": "20-30h",
-    "modalities": [
-      "Remoto",
-      "Híbrido (Porto Feliz/Região)",
-      "Presencial (Porto Feliz)"
+    "professionalSkills": [
+      "Gestão de projetos",
+      "Resolução de problemas técnicos",
+      "Metodologia ágil",
+      "Análise de dados",
+      "Comunicação e colaboração",
+      "Aprendizado rápido (acelerado com IA)",
+      "Eficiência na resolução de problemas técnicos",
+      "Boa organização"
     ],
-    "immediateStart": true
+    "languages": {
+      "portuguese": {
+        "language": "Português",
+        "level": "Nativo"
+      },
+      "english": {
+        "language": "Inglês",
+        "level": "Avançado (Autodidata)",
+        "skills": [
+          "Ler",
+          "Escrever",
+          "Ouvir",
+          "Falar"
+        ]
+      },
+      "german": {
+        "language": "Alemão",
+        "level": "Básico Iniciante"
+      }
+    },
+    "personalInfo": {
+      "location": {
+        "country": "Brasil"
+      }
+    },
+    "careerGoals": {
+      "immediate": "Conseguir oportunidade de estágio em desenvolvimento web.",
+      "mediumTerm": "Transicionar conhecimento de web para desenvolver aplicativos PC e Mobile.",
+      "longTerm": "Criar soluções que tenham o poder de entregar uma experiência prazerosa, eficiente e limpa ao usuário."
+    },
+    "availability": {
+      "modalities": [
+        "Remoto",
+        "Híbrido (Porto Feliz/Região)",
+        "Presencial (Porto Feliz)"
+      ]
+    }
   }
 }
