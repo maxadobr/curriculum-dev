@@ -1,5 +1,13 @@
 const supportedLanguages = ['en-US', 'pt-BR'];
 
+function normalizeLanguageCode(lng) {
+  if (!lng) return null;
+  if (supportedLanguages.includes(lng)) return lng;
+  if (lng.startsWith('pt')) return 'pt-BR';
+  if (lng.startsWith('en')) return 'en-US';
+  return null;
+}
+
 async function loadTranslations(lng) {
   const response = await fetch(`./data/i18n/${lng}.json`);
   if (!response.ok) throw new Error(`Failed to load translations for ${lng}`);
@@ -7,15 +15,15 @@ async function loadTranslations(lng) {
 }
 
 function detectLanguage() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const urlLng = normalizeLanguageCode(urlParams.get('lng'));
+  if (urlLng) {
+    return urlLng;
+  }
+
   const cached = localStorage.getItem('i18nextLng');
   if (cached && supportedLanguages.includes(cached)) {
     return cached;
-  }
-
-  const urlParams = new URLSearchParams(window.location.search);
-  const urlLng = urlParams.get('lng');
-  if (urlLng && supportedLanguages.includes(urlLng)) {
-    return urlLng;
   }
 
   const navLang = navigator.language;

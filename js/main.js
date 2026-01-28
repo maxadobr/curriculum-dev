@@ -117,12 +117,61 @@ function setupLanguageSwitcher() {
   };
 }
 
+
+function deepMergeTranslations(resumeData, translations) {
+  if (!translations || typeof translations !== 'object') {
+    return resumeData;
+  }
+
+  if (Array.isArray(resumeData)) {
+    if (Array.isArray(translations)) {
+      return translations;
+    }
+    return resumeData.map((item, index) => {
+      const itemTranslation = translations[index] || translations[Object.keys(translations)[index]];
+      if (typeof item === 'object' && item !== null && itemTranslation) {
+        return deepMergeTranslations(item, itemTranslation);
+      }
+      return itemTranslation || item;
+    });
+  }
+
+  if (typeof resumeData === 'object' && resumeData !== null) {
+    const result = { ...resumeData };
+    for (const key of Object.keys(result)) {
+      if (translations[key] !== undefined) {
+        if (typeof result[key] === 'object' && result[key] !== null && typeof translations[key] === 'object') {
+          result[key] = deepMergeTranslations(result[key], translations[key]);
+        } else {
+          result[key] = translations[key];
+        }
+      }
+    }
+    return result;
+  }
+
+  return translations !== undefined ? translations : resumeData;
+}
+
+
+function getContentTranslations() {
+  const currentLng = i18next.language;
+  const resources = i18next.store?.data?.[currentLng]?.translation;
+  return resources?.content || null;
+}
+
 async function loadResume() {
   try {
     const response = await fetch('./data/resume.json');
     if (!response.ok) throw new Error('Failed to load resume.json');
 
-    const resumeData = await response.json();
+    let resumeData = await response.json();
+
+    const contentTranslations = getContentTranslations();
+    if (contentTranslations) {
+      resumeData = deepMergeTranslations(resumeData, contentTranslations);
+    }
+
     renderResume(resumeData);
   } catch (error) {
     console.error('Error loading resume:', error);
