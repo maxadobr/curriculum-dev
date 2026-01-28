@@ -15,7 +15,9 @@
     --text-primary: #b3b1ad;
     --text-secondary: #8a8986;
     --text-heading: #e6e1cf;
-    --accent-orange: #ff8f40;
+    --accent-coffee: #c9a227;
+    --accent-coffee-light: #dbb73a;
+    --accent-coffee-dark: #a68518;
     --accent-blue: #59c2ff;
     --accent-green: #aad94c;
     --accent-purple: #d2a6ff;
@@ -53,7 +55,9 @@
         --text-primary: #5c6166;
         --text-secondary: #828c99;
         --text-heading: #242936;
-        --accent-orange: #ff8f40;
+        --accent-coffee: #6b4f0f;
+        --accent-coffee-light: #8B6914;
+        --accent-coffee-dark: #4a3609;
         --accent-blue: #399ee6;
         --accent-green: #86b300;
         --accent-purple: #a37acc;
@@ -78,31 +82,59 @@ body {
     min-height: 100vh;
 }
 
-/* Headings */
+/* Headings - Hierarchical styling */
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-    color: var(--text-heading);
+    font-family: 'Roboto', sans-serif;
     line-height: var(--line-height-heading);
     font-weight: 500;
 }
 
+/* h1 - Most prominent, special font */
 h1 {
-    font-size: var(--font-size-h1);
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 2rem;
     font-weight: 700;
+    color: var(--accent-coffee-dark);
 }
 
+/* h2 - High contrast */
 h2 {
-    font-size: var(--font-size-h2);
+    font-size: 1.5rem;
     font-weight: 600;
+    color: var(--accent-coffee);
 }
 
+/* h3 - Medium-high contrast */
 h3 {
-    font-size: var(--font-size-lg);
+    font-size: 1.25rem;
     font-weight: 500;
+    color: var(--accent-coffee);
+}
+
+/* h4 - Medium contrast */
+h4 {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--accent-coffee-light);
+}
+
+/* h5 - Lower contrast */
+h5 {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-heading);
+}
+
+/* h6 - Lowest contrast */
+h6 {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-secondary);
 }
 
 /* Links */

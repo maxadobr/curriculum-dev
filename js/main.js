@@ -49,12 +49,38 @@ function jsonToHtml(piece, depth = 3, ...ignoreKeys) {
   return "";
 }
 
+function renderProjects(projects) {
+  const projectsHtml = projects.map(project => {
+    const imageHtml = project.image
+      ? `<img src="${project.image}" alt="${project.name}">`
+      : `<span class="project-image-placeholder">imagem do projeto</span>`;
+
+    return `
+      <article class="project-card">
+        <div class="project-image">
+          ${imageHtml}
+        </div>
+        <div class="project-content">
+          <h3>${project.name}</h3>
+          <p class="project-description">${project.description}</p>
+          <div class="project-actions">
+            ${project.demoUrl ? `<a href="${project.demoUrl}" class="project-btn" target="_blank" rel="noopener noreferrer">acesso</a>` : ''}
+            ${project.repository ? `<a href="${project.repository}" class="project-btn" target="_blank" rel="noopener noreferrer">código</a>` : ''}
+          </div>
+        </div>
+      </article>
+    `;
+  }).join('');
+
+  document.getElementById('projects-list').innerHTML = projectsHtml;
+}
+
 function renderResume(data) {
   document.getElementById('name').textContent = data.personalInfo.fullName;
   document.getElementById('contact-compact-list').innerHTML = jsonToHtml(data.personalInfo, 3, 'fullName', 'year', 'month', 'location');
   document.getElementById('about-me-container').innerHTML = jsonToHtml(data.aboutMe);
 
-  document.getElementById('projects-list').innerHTML = jsonToHtml(data.projects);
+  renderProjects(data.projects);
   document.getElementById('skills-list').innerHTML = jsonToHtml(data.skills);
   document.getElementById('education-list').innerHTML = jsonToHtml(data.education);
   document.getElementById('experience-list').innerHTML = jsonToHtml(data.experience);
