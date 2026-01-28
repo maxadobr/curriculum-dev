@@ -242,8 +242,9 @@
         "degree": "Engenharia de Software",
         "duration": "4 anos"
       },
-      "techCourses": {
-        "cs50": {
+      "techCourses": [
+        {
+          "name": "CS50x - Introdução à Ciência da Computação",
           "focus": [
             "C",
             "Python",
@@ -272,7 +273,12 @@
             "Cybersecurity"
           ]
         },
-        "react": {
+        {
+          "name": "Bootcamp Santander Open Academy 2025 / DIO 2025 Front-End",
+          "status": "Concluído"
+        },
+        {
+          "name": "React - A biblioteca para interfaces web e nativas",
           "focus": [
             "React",
             "Componentes",
@@ -282,7 +288,7 @@
             "UI Components"
           ]
         }
-      },
+      ],
       "technicalCourses": {
         "generalMechanics": "Mecânica Geral",
         "mechanicalDesign": "Desenhista Projetista Mecânico",

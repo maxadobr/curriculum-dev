@@ -76,49 +76,33 @@ section h2 {
   color: var(--text-secondary);
 }
 
-/* Hide the "contact" label */
-#contact-compact-list>.contact>h3 {
-  display: none;
-}
-
-/* Style contact container */
-#contact-compact-list>.contact {
+/* Contact compact with icons */
+.contact-compact-icons {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: var(--spacing-sm) var(--spacing-lg);
 }
 
-/* Style each contact item (email, linkedin, github) */
-#contact-compact-list>.contact>div {
+.contact-compact-item {
   display: inline-flex;
   align-items: center;
   gap: var(--spacing-xs);
 }
 
-/* Style the contact labels (E-mail, LinkedIn, GitHub) */
-#contact-compact-list>.contact>div>h4 {
-  font-size: var(--font-size-sm);
-  font-weight: 500;
-  color: var(--text-heading);
-  margin: 0;
-}
-
-/* Style the contact values (links/text) */
-#contact-compact-list>.contact>div>p,
-#contact-compact-list>.contact>div>ul {
-  margin: 0;
-  font-size: var(--font-size-sm);
+.contact-compact-item i {
   color: var(--accent-coffee);
+  font-size: 1rem;
 }
 
-#contact-compact-list>.contact>div>ul {
-  list-style: none;
-  padding: 0;
+.contact-compact-item span,
+.contact-compact-item a {
+  font-size: var(--font-size-sm);
+  color: var(--text-primary);
 }
 
-#contact-compact-list>.contact>div>ul li {
-  display: inline;
+.contact-compact-item a:hover {
+  color: var(--accent-coffee);
 }
 
 /* ==========================================
@@ -239,7 +223,7 @@ section h2 {
 }
 
 .project-card h3 {
-  color: var(--text-heading);
+  color: var(--accent-coffee);
   font-size: var(--font-size-lg);
   margin-bottom: var(--spacing-sm);
   font-style: italic;
@@ -285,143 +269,282 @@ section h2 {
 }
 
 /* ==========================================
-   SKILL ITEMS
+   SKILLS SECTION - 2 Column Asymmetric Layout
    ========================================== */
 
-.skill-item {
-  display: flex;
-  align-items: center;
+/* Main skills grid - mobile first (1 column) */
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr;
   gap: var(--spacing-sm);
-  padding: var(--spacing-sm);
-  background-color: var(--bg-primary);
-  border-radius: 4px;
 }
 
-.skill-item strong {
-  color: var(--text-heading);
-  font-size: var(--font-size-base);
+/* Each subcategory as a compact card */
+.skills-grid>div {
+  background-color: var(--bg-primary);
+  border-radius: 6px;
+  padding: var(--spacing-sm);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
 }
+
+/* developmentTools card - spans full right column on desktop */
+.skills-grid>.developmentTools {
+  order: 99;
+  /* Push to end on mobile */
+}
+
+/* Card title (subcategory name) */
+.skills-grid>div>h3 {
+  color: var(--accent-coffee);
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: var(--spacing-xs);
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--accent-coffee-light);
+}
+
+/* Nested subcategory titles (h4) - follows coffee hierarchy */
+.skills-grid>div h4 {
+  color: var(--accent-coffee-light);
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-top: var(--spacing-xs);
+  margin-bottom: 2px;
+}
+
+/* Deep nested titles (h5) - follows coffee hierarchy */
+.skills-grid>div h5 {
+  color: var(--accent-coffee-light);
+  font-size: 0.75rem;
+  font-weight: 500;
+  margin-top: 4px;
+  margin-bottom: 2px;
+}
+
+/* Lists inside skill cards - VERTICAL (1 per line) */
+.skills-grid ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.skills-grid ul li {
+  color: var(--text-primary);
+  font-size: 0.75rem;
+  padding: 1px 0;
+  padding-left: 0.75rem;
+  position: relative;
+  line-height: 1.2;
+}
+
+.skills-grid ul li::before {
+  content: "•";
+  color: var(--accent-coffee);
+  position: absolute;
+  left: 0;
+}
+
+/* Paragraphs inside skill cards */
+.skills-grid p {
+  color: var(--text-primary);
+  font-size: 0.75rem;
+  margin: 2px 0;
+  line-height: 1.3;
+}
+
+
 
 /* ==========================================
-   EDUCATION & EXPERIENCE ITEMS
+   EDUCATION - Card Grid Style (like projects)
    ========================================== */
 
-.education-item,
-.experience-item {
-  padding: var(--spacing-md);
-  border-left: 2px solid var(--accent-blue);
+.education-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--spacing-md);
+}
+
+.education-card {
+  display: flex;
+  flex-direction: column;
   background-color: var(--bg-primary);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.education-item h3,
-.experience-item h3 {
-  color: var(--accent-blue);
-  margin-bottom: var(--spacing-xs);
+.education-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.education-content {
+  padding: var(--spacing-md);
+  text-align: center;
+}
+
+.education-card h3 {
+  color: var(--accent-coffee);
   font-size: var(--font-size-lg);
+  margin-bottom: var(--spacing-xs);
+  font-weight: 600;
 }
 
-.education-item .period,
-.experience-item .period {
+.education-institution {
+  color: var(--text-heading);
+  font-size: var(--font-size-sm);
+  margin-bottom: var(--spacing-xs);
+}
+
+.education-period {
   color: var(--text-secondary);
   font-size: var(--font-size-sm);
   font-style: italic;
-  margin-bottom: var(--spacing-xs);
+  margin-bottom: var(--spacing-sm);
 }
 
-.education-item p,
-.experience-item p {
-  color: var(--text-primary);
+.education-status {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background-color: var(--accent-coffee);
+  color: var(--bg-primary);
+  font-size: 0.7rem;
+  font-weight: 500;
+  border-radius: 12px;
+  margin-bottom: var(--spacing-sm);
+}
+
+.education-status.status-completed {
+  background-color: var(--accent-green);
+  color: #000;
+  /* Ensure high contrast on green */
+}
+
+/* In dark mode, ensure label text is readable on green */
+@media (prefers-color-scheme: dark) {
+  .education-status.status-completed {
+    color: #000;
+  }
+}
+
+/* In light mode, accent-green is darker #86b300, so white text is better */
+@media (prefers-color-scheme: light) {
+  .education-status.status-completed {
+    color: #fff;
+  }
+}
+
+.education-tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px;
   margin-top: var(--spacing-xs);
 }
+
+.tech-tag {
+  padding: 0.1rem 0.4rem;
+  background-color: var(--bg-secondary);
+  color: var(--accent-coffee-light);
+  font-size: 0.65rem;
+  border-radius: 4px;
+  border: 1px solid var(--accent-coffee-light);
+}
+
+/* Major education card (Undergraduate) - stands out */
+.education-card-major {
+  border-top: 4px solid var(--accent-coffee);
+  background: linear-gradient(to bottom, var(--bg-primary), var(--bg-secondary));
+}
+
+.education-card-major h3 {
+  font-size: 1.2rem;
+  /* Slightly larger title */
+  margin-bottom: var(--spacing-sm);
+}
+
+@media (min-width: 768px) {
+  .education-card-major {
+    grid-column: span 2;
+    /* Spans 2 columns on wider screens */
+  }
+}
+
+/* Minor education cards (technical courses - older) */
+.education-minor-grid {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+  justify-content: center;
+  margin-top: var(--spacing-sm);
+  padding-top: var(--spacing-sm);
+  border-top: 1px solid var(--divider-color);
+}
+
+.education-card-minor {
+  background-color: var(--bg-primary);
+  border-radius: 4px;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  text-align: center;
+  flex: 0 1 auto;
+  max-width: 180px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  border: 1px solid transparent;
+  /* Prepare for border transition */
+}
+
+.education-card-minor:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  border-color: var(--accent-coffee-light);
+}
+
+.education-card-minor h4 {
+  color: var(--text-secondary);
+  font-size: 0.7rem;
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+
+.education-card-minor p {
+  color: var(--text-secondary);
+  font-size: 0.6rem;
+  margin: 0;
+  opacity: 0.8;
+}
+
+/* ==========================================
+   EXPERIENCE ITEMS - Uses generic rendering
+   ========================================== */
+/* Wrappers are generated dynamically by jsonToHtml using key names */
 
 /* ==========================================
    PROFESSIONAL SKILLS
    ========================================== */
-
-.professional-skill-item {
-  padding: var(--spacing-sm);
-  background-color: var(--bg-primary);
-  border-left: 2px solid var(--accent-green);
-}
-
-.professional-skill-item strong {
-  color: var(--accent-green);
-  display: block;
-  margin-bottom: var(--spacing-xs);
-}
+/* Rendered as lists via jsonToHtml */
 
 /* ==========================================
    LANGUAGES
    ========================================== */
-
-.language-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: var(--spacing-sm);
-  background-color: var(--bg-primary);
-  border-radius: 4px;
-}
-
-.language-item .language-name {
-  font-weight: 500;
-  color: var(--text-heading);
-}
-
-.language-item .language-level {
-  color: var(--accent-purple);
-  font-size: var(--font-size-sm);
-}
+/* Rendered via jsonToHtml */
 
 /* ==========================================
    PERSONAL INFO
    ========================================== */
-
-.personal-info-item {
-  display: flex;
-  gap: var(--spacing-sm);
-  padding: var(--spacing-xs) 0;
-  color: var(--text-primary);
-}
-
-.personal-info-item strong {
-  color: var(--text-heading);
-  min-width: 120px;
-}
+/* Rendered via jsonToHtml */
 
 /* ==========================================
    AVAILABILITY & CAREER GOALS
    ========================================== */
-
-.availability-item,
-.goal-item {
-  padding: var(--spacing-sm);
-  background-color: var(--bg-primary);
-  border-radius: 4px;
-  color: var(--text-primary);
-}
+/* Rendered via jsonToHtml */
 
 /* ==========================================
    CONTACT
    ========================================== */
-
-.contact-item {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-sm);
-  padding: var(--spacing-sm);
-  background-color: var(--bg-primary);
-  border-radius: 4px;
-}
-
-.contact-item i {
-  color: var(--accent-blue);
-  width: 20px;
-}
-
-.contact-item a {
-  color: var(--accent-blue);
-}
+/* Rendered via jsonToHtml */
 
 /* ==========================================
    RESPONSIVE - TABLET & UP
@@ -432,7 +555,26 @@ section h2 {
     padding: var(--spacing-xl);
   }
 
-  .skills-grid,
+  /* 2 column asymmetric layout for skills */
+  .skills-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+  }
+
+  /* developmentTools spans entire right column */
+  .skills-grid>.developmentTools {
+    grid-column: 2;
+    grid-row: 1 / span 4;
+    order: 0;
+  }
+
+  /* Other cards stack in left column */
+  .skills-grid>.frontend,
+  .skills-grid>.backend,
+  .skills-grid>.computerScienceFundamentals {
+    grid-column: 1;
+  }
+
   .professional-skills-grid,
   .languages-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -490,22 +632,15 @@ section h2 {
 
   /* Keep accent colors subtle */
   .project-card,
-  .education-item,
-  .experience-item,
-  .professional-skill-item {
+  .education-card {
     border-left-color: #666666;
   }
 
   /* Simplify backgrounds */
   .project-card,
-  .skill-item,
-  .education-item,
-  .experience-item,
-  .professional-skill-item,
-  .language-item,
-  .availability-item,
-  .goal-item,
-  .contact-item {
+  .education-card,
+  .education-card-minor {
     background-color: transparent;
+    box-shadow: none;
   }
 }
