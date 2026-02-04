@@ -44,8 +44,11 @@
    SECTIONS
    ========================================== */
 
-.section {
+.section,
+section,
+.skills-languages-row {
   margin-bottom: var(--section-gap);
+  padding-bottom: 1rem;
 }
 
 section h2 {
@@ -76,7 +79,7 @@ section h2 {
   color: var(--text-secondary);
 }
 
-/* Contact compact with icons */
+
 .contact-compact-icons {
   display: flex;
   flex-wrap: wrap;
@@ -352,7 +355,162 @@ section h2 {
   line-height: 1.3;
 }
 
+/* ==========================================
+   PROFESSIONAL SKILLS & LANGUAGES ROW
+   ========================================== */
 
+.skills-languages-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-lg);
+  margin-bottom: var(--section-gap);
+}
+
+.skills-languages-row>section {
+  flex: 1 1 45%;
+  min-width: 280px;
+}
+
+.skills-languages-row .skills-grid {
+  grid-template-columns: 1fr;
+}
+
+.skills-languages-row .skills-grid>div {
+  grid-column: span 1;
+}
+
+
+.professional-skills .skills-grid ul {
+  padding-left: var(--spacing-md);
+}
+
+.professional-skills .skills-grid ul li {
+  font-size: 1rem;
+  line-height: 1.2;
+  margin-bottom: var(--spacing-sm);
+  padding: var(--spacing-xs) 0;
+  padding-left: 1rem;
+}
+
+
+.language-item {
+  margin-bottom: var(--spacing-md);
+  padding-bottom: var(--spacing-sm);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.language-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.language-item h3 {
+  color: var(--accent-coffee);
+  font-size: 1.1rem;
+  margin-bottom: var(--spacing-xs);
+}
+
+.language-item p {
+  font-size: 0.9rem;
+  margin: var(--spacing-xs) 0;
+  color: var(--text-primary);
+}
+
+.language-item strong {
+  color: var(--text-secondary);
+  padding-left: 1rem;
+  padding-right: 0.1rem;
+}
+
+.language-skills ul {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
+  list-style: none;
+  padding: 0;
+  margin: var(--spacing-xs) 0;
+}
+
+.language-skills ul li {
+  background-color: var(--bg-secondary);
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+}
+
+/* ==========================================
+   PERSONAL INFO - Business Card Style
+   ========================================== */
+
+.business-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--spacing-md);
+  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  padding: var(--spacing-lg);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.business-card-main {
+  flex: 1 1 auto;
+}
+
+.business-card-name {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.5rem;
+  color: var(--accent-coffee);
+  margin-bottom: var(--spacing-xs);
+}
+
+.business-card-location {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+.business-card-location i {
+  margin-right: var(--spacing-xs);
+  color: var(--accent-coffee-light);
+}
+
+.business-card-contact {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--spacing-md);
+}
+
+.business-card-contact-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: 0.9rem;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: 6px;
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-light);
+  transition: all 0.2s ease;
+}
+
+.business-card-contact-item:hover {
+  background-color: var(--accent-coffee-light);
+  color: var(--bg-primary);
+  border-color: var(--accent-coffee);
+}
+
+.business-card-contact-item i {
+  font-size: 1rem;
+  color: var(--accent-coffee);
+}
+
+.business-card-contact-item:hover i {
+  color: var(--bg-primary);
+}
 
 /* ==========================================
    EDUCATION - Card Grid Style (like projects)
@@ -516,10 +674,170 @@ section h2 {
   opacity: 0.8;
 }
 
-/* ==========================================
-   EXPERIENCE ITEMS - Uses generic rendering
-   ========================================== */
-/* Wrappers are generated dynamically by jsonToHtml using key names */
+/* ========================================================
+   EXPERIENCE & EDUCATION - Shared Card Styles
+   ======================================================== */
+
+/* Experience grid mirrors education grid layout */
+.experience-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--spacing-md);
+}
+
+.experience-card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-primary);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.experience-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.experience-content {
+  padding: var(--spacing-md);
+  text-align: center;
+}
+
+.experience-card h3 {
+  color: var(--accent-coffee);
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--spacing-xs);
+  font-weight: 600;
+}
+
+.experience-institution {
+  color: var(--text-heading);
+  font-size: var(--font-size-sm);
+  margin-bottom: var(--spacing-xs);
+}
+
+.experience-period {
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+  font-style: italic;
+  margin-bottom: var(--spacing-sm);
+}
+
+.experience-status {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background-color: var(--accent-coffee);
+  color: var(--bg-primary);
+  font-size: 0.7rem;
+  font-weight: 500;
+  border-radius: 12px;
+  margin-bottom: var(--spacing-sm);
+}
+
+.experience-status.status-completed {
+  background-color: var(--accent-green);
+  color: #000;
+}
+
+.experience-tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px;
+  margin-top: var(--spacing-xs);
+}
+
+/* Major experience card - stands out */
+.experience-card-major {
+  border-top: 4px solid var(--accent-coffee);
+  background: linear-gradient(to bottom, var(--bg-primary), var(--bg-secondary));
+}
+
+.experience-card-major h3 {
+  font-size: 1.2rem;
+  margin-bottom: var(--spacing-sm);
+}
+
+@media (min-width: 768px) {
+  .experience-card-major {
+    grid-column: span 2;
+  }
+}
+
+/* Minor experience cards (apprentice roles, older entries) */
+.experience-minor-grid {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+  justify-content: center;
+  margin-top: var(--spacing-sm);
+  padding-top: var(--spacing-sm);
+  border-top: 1px solid var(--divider-color);
+}
+
+.experience-card-minor {
+  background-color: var(--bg-primary);
+  border-radius: 4px;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  text-align: center;
+  flex: 0 1 auto;
+  max-width: 180px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.experience-card-minor:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  border-color: var(--accent-coffee-light);
+}
+
+.experience-card-minor h4 {
+  color: var(--text-secondary);
+  font-size: 0.7rem;
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+
+.experience-card-minor p {
+  color: var(--text-secondary);
+  font-size: 0.6rem;
+  margin: 0;
+  opacity: 0.8;
+}
+
+/* Entry details list (responsibilities, achievements) */
+.entry-details {
+  list-style: none;
+  padding: 0;
+  margin-top: var(--spacing-sm);
+  text-align: left;
+  font-size: 0.75rem;
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+.entry-details li {
+  position: relative;
+  padding-left: 1rem;
+  margin-bottom: 4px;
+}
+
+.entry-details li::before {
+  content: "•";
+  color: var(--accent-coffee);
+  position: absolute;
+  left: 0;
+}
+
+.entry-details li.achievement::before {
+  content: "★";
+  color: var(--accent-coffee);
+}
 
 /* ==========================================
    PROFESSIONAL SKILLS
@@ -632,14 +950,17 @@ section h2 {
 
   /* Keep accent colors subtle */
   .project-card,
-  .education-card {
+  .education-card,
+  .experience-card {
     border-left-color: #666666;
   }
 
   /* Simplify backgrounds */
   .project-card,
   .education-card,
-  .education-card-minor {
+  .education-card-minor,
+  .experience-card,
+  .experience-card-minor {
     background-color: transparent;
     box-shadow: none;
   }

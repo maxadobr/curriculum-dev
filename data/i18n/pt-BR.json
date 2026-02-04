@@ -65,6 +65,7 @@
     "period": "Período",
     "start": "Início",
     "end": "Fim",
+    "present": "Atual",
     "responsibilities": "Responsabilidades",
     "keyAchievements": "Principais Conquistas",
     "activities": "Atividades",
@@ -192,6 +193,13 @@
     },
     "skills": {
       "frontend": {
+        "markupAndStyleLanguages": [
+          "HTML5",
+          "CSS3"
+        ],
+        "programmingLanguages": [
+          "JavaScript"
+        ],
         "uiDesign": {
           "tools": [
             "Figma (prototipagem, wireframes)",
@@ -211,24 +219,65 @@
           "Dark/Light mode"
         ]
       },
+      "backend": {
+        "languages": [
+          "Python",
+          "C"
+        ],
+        "frameworks": [
+          "Flask"
+        ],
+        "databases": [
+          "SQL"
+        ]
+      },
       "computerScienceFundamentals": [
         "Algoritmos",
         "Memória",
-        "Estrutura de dados",
+        "Estruturas de Dados",
         "Encapsulamento",
-        "Rede de computadores",
-        "Gerenciamento de recursos",
-        "Lógica de programação"
+        "Redes de Computadores",
+        "Gerenciamento de Recursos",
+        "Lógica de Programação"
       ],
       "developmentTools": {
+        "versionControl": [
+          "Git",
+          "GitHub"
+        ],
+        "projectManagement": [
+          "Trello",
+          "Jira",
+          "Kanban"
+        ],
+        "operatingSystems": [
+          "Linux/Unix",
+          "Windows",
+          "WSL2"
+        ],
         "terminal": [
-          "Linha de comando",
+          "Linha de Comando",
           "Bash Scripting",
-          "Administração de sistemas"
+          "Administração de Sistemas"
+        ],
+        "editors": [
+          "VSCode",
+          "VIM",
+          "Emacs"
         ],
         "generativeAI": {
+          "models": [
+            "Claude",
+            "Gemini",
+            "GPT"
+          ],
+          "tools": [
+            "Perplexity",
+            "Antigravity",
+            "Copilot (VSCode)"
+          ],
           "capabilities": [
-            "Prompt engineering",
+            "Engenharia de prompts",
             "Revisão e refatoração de código com IA",
             "Geração e execução de testes unitários básicos",
             "Pesquisa e aprendizado acelerado com referências",
@@ -254,28 +303,34 @@
             "JavaScript",
             "Flask",
             "Algoritmos",
-            "Estruturas de dados"
+            "Estruturas de Dados"
           ],
           "mainTopics": [
             "Scratch",
             "Linguagem C",
             "Arrays",
-            "Algorithms",
-            "Memory",
-            "Data Structures",
+            "Algoritmos",
+            "Memória",
+            "Estruturas de Dados",
             "Python",
-            "Artificial Intelligence",
+            "Inteligência Artificial",
             "SQL",
             "HTML",
             "CSS",
             "JavaScript",
             "Flask",
-            "Cybersecurity"
+            "Cibersegurança"
           ]
         },
         {
           "name": "Bootcamp Santander Open Academy 2025 / DIO 2025 Front-End",
-          "status": "Concluído"
+          "status": "Concluído",
+          "focus": [
+            "HTML",
+            "Git",
+            "CSS",
+            "JavaScript"
+          ]
         },
         {
           "name": "React - A biblioteca para interfaces web e nativas",
@@ -284,30 +339,43 @@
             "Componentes",
             "JSX",
             "Hooks",
-            "State Management",
-            "UI Components"
+            "Gerenciamento de Estado",
+            "Componentes de UI"
           ]
         }
       ],
-      "technicalCourses": {
-        "generalMechanics": "Mecânica Geral",
-        "mechanicalDesign": "Desenhista Projetista Mecânico",
-        "excelBasicAdvanced": "Excel Básico + Avançado"
-      }
+      "technicalCourses": [
+        {
+          "name": "Mecânica Geral"
+        },
+        {
+          "name": "AutoCAD 2D"
+        },
+        {
+          "name": "SolidWorks 3D"
+        },
+        {
+          "name": "Desenhista Projetista Mecânico"
+        },
+        {
+          "name": "Excel Básico + Avançado"
+        }
+      ]
     },
-    "experience": {
-      "selfEmployed": {
+    "experience": [
+      {
         "type": "Autônomo",
         "company": "Marcelo Machado - Projetos e Soluções",
-        "role": "Autônomo",
+        "role": "Consultor Autônomo",
         "responsibilities": [
           "Desenvolvimento de metodologias de trabalho e produtos especialmente em borracha de linha automotivo e construção civil, tornando os processos mais lucrativos, eficientes e auditáveis.",
           "Facilitar a adesão de novos funcionários ao processo de produção por meio de uma documentação robusta para a parte técnica, mas simples e objetiva para o corpo fabril.",
           "Diminuir as possibilidades de falha humana por meio dos sistemas."
         ]
       },
-      "madox": {
+      {
         "type": "Contrato",
+        "company": "Madox - Autopeças em Borracha ME",
         "role": "Analista de Operações",
         "responsibilities": [
           "Desenvolver produtos de acordo com as necessidades do mercado.",
@@ -321,9 +389,10 @@
           "Criei uma metodologia de análise de dados, cruzando múltiplas fontes para gerar insights e embasar decisões estratégicas na empresa."
         ]
       },
-      "neobor": {
+      {
         "type": "Contrato",
-        "role": "Desenvolvedor de produtos",
+        "company": "Neobor - Indústria de Artefatos de Borracha Ltda",
+        "role": "Desenvolvedor de Produtos",
         "responsibilities": [
           "Desenvolver itens e ferramentas para linhas de construção civil e automotiva.",
           "Elaboração de fichas e desenhos técnicos para desenvolvimento, produção e controle de qualidade.",
@@ -336,15 +405,18 @@
           "Sugeri e participei da implementação de uma estrutura em Cloud para centralizar nosso trabalho, que anteriormente era feito numa rede local."
         ]
       },
-      "stemmann": {
+      {
+        "type": "Contrato",
+        "company": "Stemmann - Equipamentos e Acessórios para Máquinas",
         "role": "Aprendiz Mecânico de Usinagem",
         "activities": "Usinagem e acabamento de peças"
       },
-      "fibratech": {
+      {
+        "company": "Fibratech Reciclagem Técnica",
         "role": "Aprendiz Eletricista Industrial",
         "activities": "Manutenção de painéis elétricos, máquinas e configuração de inversores de potência"
       }
-    },
+    ],
     "specificSkills": {
       "engineeringDesign": {
         "skills": [
@@ -375,12 +447,12 @@
       "Eficiência na resolução de problemas técnicos",
       "Boa organização"
     ],
-    "languages": {
-      "portuguese": {
+    "languages": [
+      {
         "language": "Português",
         "level": "Nativo"
       },
-      "english": {
+      {
         "language": "Inglês",
         "level": "Avançado (Autodidata)",
         "skills": [
@@ -390,11 +462,12 @@
           "Falar"
         ]
       },
-      "german": {
+      {
         "language": "Alemão",
-        "level": "Básico Iniciante"
+        "level": "Básico Iniciante",
+        "institution": "Wizard Porto Feliz"
       }
-    },
+    ],
     "personalInfo": {
       "location": {
         "country": "Brasil"

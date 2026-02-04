@@ -103,105 +103,219 @@ function renderContactCompact(contact) {
   return html;
 }
 
-function renderEducation(education) {
+function renderLanguages(languages) {
   let html = '';
 
-  const getStatusClass = (status) => {
+  languages.forEach(lang => {
+    html += `<div class="language-item">`;
+    html += `<h3>${lang.language}</h3>`;
+
+    if (lang.level) {
+      html += `<p class="language-level"><strong>${translateKey('level')}:</strong> ${lang.level}</p>`;
+    }
+
+    if (lang.skills && lang.skills.length > 0) {
+      html += `<div class="language-skills">`;
+      html += `<strong>${translateKey('skills')}:</strong>`;
+      html += `<ul>`;
+      lang.skills.forEach(skill => {
+        html += `<li>${skill}</li>`;
+      });
+      html += `</ul></div>`;
+    }
+
+    if (lang.institution) {
+      html += `<p class="language-institution"><strong>${translateKey('institution')}:</strong> ${lang.institution}</p>`;
+    }
+
+    html += `</div>`;
+  });
+
+  return html;
+}
+
+function renderPersonalInfo(info) {
+  const location = info.location
+    ? `${info.location.city}, ${info.location.state} - ${info.location.country}`
+    : '';
+
+  const contactIcons = {
+    email: 'fa-solid fa-envelope',
+    linkedin: 'fa-brands fa-linkedin',
+    github: 'fa-brands fa-github'
+  };
+
+  let contactHtml = '';
+  if (info.contact) {
+    for (const [key, value] of Object.entries(info.contact)) {
+      const icon = contactIcons[key] || 'fa-solid fa-link';
+      const isLink = value.startsWith('http');
+      const href = isLink ? value : (key === 'email' ? `mailto:${value}` : value);
+      const displayText = key === 'email' ? value : value.replace(/https?:\/\/(www\.)?/, '');
+
+      contactHtml += `
+        <a href="${href}" class="business-card-contact-item" target="${isLink ? '_blank' : '_self'}" rel="noopener noreferrer">
+          <i class="${icon}"></i>
+          <span>${displayText}</span>
+        </a>
+      `;
+    }
+  }
+
+  return `
+    <div class="business-card">
+      <div class="business-card-main">
+        <h3 class="business-card-name">${info.fullName}</h3>
+        <p class="business-card-location"><i class="fa-solid fa-location-dot"></i> ${location}</p>
+      </div>
+      <div class="business-card-contact">
+        ${contactHtml}
+      </div>
+    </div>
+  `;
+}
+
+const cardUtils = {
+  getStatusClass: (status) => {
     if (!status) return '';
     const s = status.toLowerCase();
     if (s.includes('complet') || s.includes('conclu')) return 'status-completed';
     return 'status-in-progress';
-  };
+  },
 
-  const getTranslatedStatus = (status) => {
+  getTranslatedStatus: (status) => {
     if (!status) return '';
     const s = status.toLowerCase();
     if (s.includes('complet') || s.includes('conclu')) return i18next.t('value.status.completed');
     if (s.includes('progress') || s.includes('andamento')) return i18next.t('value.status.inProgress');
     return status;
-  };
+  },
 
-  // Undergraduate
-  if (education.undergraduate) {
-    const undergrad = education.undergraduate;
+  parseDate: (dateStr) => {
+    if (!dateStr) return 0;
+    const [month, year] = dateStr.split('/');
+    return new Date(parseInt(year), parseInt(month) - 1).getTime();
+  },
+
+  isInProgress: (status) => {
+    if (!status) return false;
+    const s = status.toLowerCase();
+    return !s.includes('complet') && !s.includes('conclu');
+  },
+
+  sortByStatusAndDate: (items, dateField = 'completionDate', altDateField = 'expectedStartDate') => {
+    return [...items].sort((a, b) => {
+      const aInProgress = cardUtils.isInProgress(a.status);
+      const bInProgress = cardUtils.isInProgress(b.status);
+
+      if (aInProgress && !bInProgress) return -1;
+      if (!aInProgress && bInProgress) return 1;
+
+      const dateA = cardUtils.parseDate(a[dateField] || a[altDateField]);
+      const dateB = cardUtils.parseDate(b[dateField] || b[altDateField]);
+
+      return dateB - dateA;
+    });
+  }
+};
+
+/**
+ * Renders a card-based section (education or experience)
+ * @param {Object} data - Section data object
+ * @param {string} sectionType - 'education' or 'experience'
+ * @param {string} targetElementId - DOM element ID to render into
+ */
+function renderCardsSection(data, sectionType, targetElementId) {
+  let html = '';
+  const cssPrefix = sectionType;
+
+  // Main/Featured item (undergraduate for education, or first major experience)
+  const mainItem = data.undergraduate || null;
+  if (mainItem) {
+    const period = mainItem.startDate && mainItem.completionDate
+      ? `${mainItem.startDate} - ${mainItem.completionDate}`
+      : mainItem.period || '';
+
     html += `
-      <article class="education-card education-card-major">
-        <div class="education-content">
-          <h3>${undergrad.degree}</h3>
-          <p class="education-institution">${undergrad.institution}</p>
-          <p class="education-period">${undergrad.startDate} - ${undergrad.completionDate}</p>
-          <span class="education-status ${getStatusClass(undergrad.status)}">${getTranslatedStatus(undergrad.status)}</span>
+      <article class="${cssPrefix}-card ${cssPrefix}-card-major">
+        <div class="${cssPrefix}-content">
+          <h3>${mainItem.degree || mainItem.role || mainItem.name}</h3>
+          <p class="${cssPrefix}-institution">${mainItem.institution || mainItem.company || ''}</p>
+          <p class="${cssPrefix}-period">${period}</p>
+          ${mainItem.status ? `<span class="${cssPrefix}-status ${cardUtils.getStatusClass(mainItem.status)}">${cardUtils.getTranslatedStatus(mainItem.status)}</span>` : ''}
         </div>
       </article>
     `;
   }
 
-  // Tech Courses
-  if (education.techCourses) {
-    // Helper to parse "MM/YYYY" into a comparable value
-    const parseDate = (dateStr) => {
-      if (!dateStr) return 0;
-      const [month, year] = dateStr.split('/');
-      return new Date(parseInt(year), parseInt(month) - 1).getTime();
-    };
+  // Regular entries (techCourses for education, experience array items)
+  const entries = data.techCourses || (Array.isArray(data) ? data : null);
+  if (entries && entries.length > 0) {
+    const sortedEntries = cardUtils.sortByStatusAndDate(entries, 'completionDate', 'expectedStartDate');
 
-    // Helper to check if status is "In progress"
-    const isInProgress = (status) => {
-      if (!status) return false;
-      const s = status.toLowerCase();
-      return !s.includes('complet') && !s.includes('conclu');
-    };
+    sortedEntries.forEach(entry => {
+      const title = entry.name || entry.role || '';
+      const institution = entry.institution || entry.platform || entry.company || '';
+      const date = entry.completionDate || entry.expectedStartDate || '';
+      const workload = entry.workload || '';
+      const focusTags = entry.focus ? entry.focus.map(f => `<span class="tech-tag">${f}</span>`).join('') : '';
 
-    // Sort courses: In Progress first, then by date descending (newest first)
-    const sortedCourses = [...education.techCourses].sort((a, b) => {
-      const aInProgress = isInProgress(a.status);
-      const bInProgress = isInProgress(b.status);
+      // Build period string for experience entries
+      let periodStr = date;
+      if (entry.period) {
+        periodStr = typeof entry.period === 'object'
+          ? `${entry.period.start || ''} - ${entry.period.end || translateKey('present')}`
+          : entry.period;
+      }
+      if (workload) periodStr += ` • ${workload}`;
 
-      // 1. Status priority: In Progress comes before Completed
-      if (aInProgress && !bInProgress) return -1;
-      if (!aInProgress && bInProgress) return 1;
-
-      // 2. Date priority: Newest date first
-      const dateA = parseDate(a.completionDate || a.expectedStartDate);
-      const dateB = parseDate(b.completionDate || b.expectedStartDate);
-
-      return dateB - dateA;
-    });
-
-    sortedCourses.forEach(course => {
-      const institution = course.institution || course.platform || '';
-      const date = course.completionDate || course.expectedStartDate || '';
-      const focusTags = course.focus ? course.focus.map(f => `<span class="tech-tag">${f}</span>`).join('') : '';
+      // Build responsibilities/achievements list
+      let detailsHtml = '';
+      const responsibilities = entry.responsibilities || [];
+      const achievements = entry.keyAchievements || [];
+      if (responsibilities.length > 0 || achievements.length > 0) {
+        detailsHtml = '<ul class="entry-details">';
+        responsibilities.slice(0, 2).forEach(r => { detailsHtml += `<li>${r}</li>`; });
+        achievements.slice(0, 1).forEach(a => { detailsHtml += `<li class="achievement">${a}</li>`; });
+        detailsHtml += '</ul>';
+      }
 
       html += `
-        <article class="education-card">
-          <div class="education-content">
-            <h3>${course.name}</h3>
-            ${institution ? `<p class="education-institution">${institution}</p>` : ''}
-            <p class="education-period">${date} ${course.workload ? `• ${course.workload}` : ''}</p>
-            ${course.status ? `<span class="education-status ${getStatusClass(course.status)}">${getTranslatedStatus(course.status)}</span>` : ''}
-            ${focusTags ? `<div class="education-tags">${focusTags}</div>` : ''}
+        <article class="${cssPrefix}-card">
+          <div class="${cssPrefix}-content">
+            <h3>${title}</h3>
+            ${institution ? `<p class="${cssPrefix}-institution">${institution}</p>` : ''}
+            <p class="${cssPrefix}-period">${periodStr}</p>
+            ${entry.status ? `<span class="${cssPrefix}-status ${cardUtils.getStatusClass(entry.status)}">${cardUtils.getTranslatedStatus(entry.status)}</span>` : ''}
+            ${focusTags ? `<div class="${cssPrefix}-tags">${focusTags}</div>` : ''}
+            ${detailsHtml}
           </div>
         </article>
       `;
     });
   }
 
-  // Technical Courses (older) - smaller cards with muted colors
-  if (education.technicalCourses) {
-    html += '<div class="education-minor-grid">';
-    education.technicalCourses.forEach(course => {
+  // Minor entries (technicalCourses for education, older/apprentice roles for experience)
+  const minorEntries = data.technicalCourses || null;
+  if (minorEntries && minorEntries.length > 0) {
+    html += `<div class="${cssPrefix}-minor-grid">`;
+    minorEntries.forEach(entry => {
+      const title = entry.name || entry.role || '';
+      const details = entry.institution
+        ? `${entry.institution} • ${entry.year || ''} • ${entry.workload || ''}`
+        : entry.activities || '';
+
       html += `
-        <article class="education-card-minor">
-          <h4>${course.name}</h4>
-          <p>${course.institution} • ${course.year} • ${course.workload}</p>
+        <article class="${cssPrefix}-card-minor">
+          <h4>${title}</h4>
+          <p>${details}</p>
         </article>
       `;
     });
     html += '</div>';
   }
 
-  document.getElementById('education-list').innerHTML = html;
+  document.getElementById(targetElementId).innerHTML = html;
 }
 
 function renderResume(data) {
@@ -211,15 +325,14 @@ function renderResume(data) {
 
   renderProjects(data.projects);
   document.getElementById('skills-list').innerHTML = jsonToHtml(data.skills);
-  renderEducation(data.education);
-  document.getElementById('experience-list').innerHTML = jsonToHtml(data.experience);
+  renderCardsSection(data.education, 'education', 'education-list');
+  renderCardsSection(data.experience, 'experience', 'experience-list');
   document.getElementById('professional-skills-list').innerHTML = jsonToHtml(data.professionalSkills);
-  document.getElementById('languages-list').innerHTML = jsonToHtml(data.languages);
+  document.getElementById('languages-list').innerHTML = renderLanguages(data.languages);
 
-  document.getElementById('personal-info-list').innerHTML = jsonToHtml(data.personalInfo);
+  document.getElementById('personal-info-list').innerHTML = renderPersonalInfo(data.personalInfo);
   document.getElementById('availability').innerHTML = jsonToHtml(data.availability);
   document.getElementById('goals-list').innerHTML = jsonToHtml(data.careerGoals);
-  document.getElementById('contact-list').innerHTML = jsonToHtml(data.personalInfo.contact);
 
   translateSectionTitles();
 }
@@ -247,53 +360,66 @@ function setupLanguageSwitcher() {
 }
 
 
-function deepMergeTranslations(resumeData, translations) {
-  if (!translations || typeof translations !== 'object') {
+function deepMergeTranslations(resumeData, translations, path = '') {
+  if (translations === undefined || translations === null) {
     return resumeData;
   }
 
-  if (Array.isArray(resumeData)) {
-    if (Array.isArray(translations)) {
-      // Merge arrays item by item to preserve properties not present in translations
-      return resumeData.map((item, index) => {
-        const itemTranslation = translations[index];
-        if (itemTranslation) {
-          return deepMergeTranslations(item, itemTranslation);
-        }
-        return item;
-      });
-    }
-    // Fallback for object-based translations of arrays
+  // If translation is a primitive (string, number, boolean), replace directly
+  if (typeof translations !== 'object') {
+    return translations;
+  }
+
+  // If resumeData is a primitive but translations is an object, return original
+  if (typeof resumeData !== 'object' || resumeData === null) {
+    return typeof translations === 'object' ? resumeData : translations;
+  }
+
+  // Both are arrays
+  if (Array.isArray(resumeData) && Array.isArray(translations)) {
     return resumeData.map((item, index) => {
-      const itemTranslation = translations[index] || translations[Object.keys(translations)[index]];
-      if (typeof item === 'object' && item !== null && itemTranslation) {
-        return deepMergeTranslations(item, itemTranslation);
+      if (index < translations.length && translations[index] !== undefined) {
+        // For primitives in array, replace directly
+        if (typeof item !== 'object' || item === null) {
+          return translations[index];
+        }
+        // For objects in array, merge recursively
+        return deepMergeTranslations(item, translations[index], `${path}[${index}]`);
       }
-      return itemTranslation || item;
+      return item;
     });
   }
 
-  if (typeof resumeData === 'object' && resumeData !== null) {
-    const result = { ...resumeData };
-    for (const key of Object.keys(result)) {
-      if (translations[key] !== undefined) {
-        if (typeof result[key] === 'object' && result[key] !== null && typeof translations[key] === 'object') {
-          result[key] = deepMergeTranslations(result[key], translations[key]);
-        } else {
-          result[key] = translations[key];
+  // resumeData is array but translations is object (legacy fallback)
+  if (Array.isArray(resumeData)) {
+    return resumeData.map((item, index) => {
+      const itemTranslation = translations[index] || translations[Object.keys(translations)[index]];
+      if (itemTranslation !== undefined) {
+        if (typeof item !== 'object' || item === null) {
+          return itemTranslation;
         }
+        return deepMergeTranslations(item, itemTranslation, `${path}[${index}]`);
       }
-    }
-    return result;
+      return item;
+    });
   }
 
-  return translations !== undefined ? translations : resumeData;
+  // Both are objects
+  const result = { ...resumeData };
+  for (const key of Object.keys(result)) {
+    if (translations[key] !== undefined) {
+      result[key] = deepMergeTranslations(result[key], translations[key], `${path}.${key}`);
+    }
+  }
+  return result;
 }
 
 
 function getContentTranslations() {
   const currentLng = i18next.language;
   const resources = i18next.store?.data?.[currentLng]?.translation;
+  console.debug('[i18n] Current language:', currentLng);
+  console.debug('[i18n] Content translations keys:', resources?.content ? Object.keys(resources.content) : 'none');
   return resources?.content || null;
 }
 
@@ -306,7 +432,10 @@ async function loadResume() {
 
     const contentTranslations = getContentTranslations();
     if (contentTranslations) {
-      resumeData = deepMergeTranslations(resumeData, contentTranslations);
+      console.debug('[i18n] Merging translations for keys:', Object.keys(contentTranslations));
+      resumeData = deepMergeTranslations(resumeData, contentTranslations, 'root');
+    } else {
+      console.warn('[i18n] No content translations found!');
     }
 
     renderResume(resumeData);
