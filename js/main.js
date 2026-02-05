@@ -55,6 +55,51 @@ function renderProjects(projects) {
       ? `<img src="${project.image}" alt="${project.name}">`
       : `<span class="project-image-placeholder">Project Image</span>`;
 
+    // Build features list if available
+    let featuresHtml = '';
+    if (project.features && project.features.length > 0) {
+      featuresHtml = `
+        <div class="features-section">
+          <h4>${translateKey('features')}</h4>
+          <ul>
+            ${project.features.map(f => `<li>${f}</li>`).join('')}
+          </ul>
+        </div>
+      `;
+    }
+
+    // Build technical highlights list if available
+    let highlightsHtml = '';
+    if (project.technicalHighlights && project.technicalHighlights.length > 0) {
+      highlightsHtml = `
+        <div class="highlights-section">
+          <h4>${translateKey('technicalHighlights')}</h4>
+          <ul>
+            ${project.technicalHighlights.map(h => `<li>${h}</li>`).join('')}
+          </ul>
+        </div>
+      `;
+    }
+
+    // Dropdown details (only shown on web, hidden in print)
+    const detailsHtml = (featuresHtml || highlightsHtml) ? `
+      <details class="project-details">
+        <summary>→ ${translateKey('details') || 'Detalhes'}</summary>
+        <div class="project-details-content">
+          ${featuresHtml}
+          ${highlightsHtml}
+        </div>
+      </details>
+    ` : '';
+
+    // Print-only links (hidden on screen, visible in print)
+    const printLinksHtml = `
+      <div class="project-print-links">
+        ${project.demoUrl ? `<span class="print-link"><strong>Demo:</strong> ${project.demoUrl}</span>` : ''}
+        ${project.repository ? `<span class="print-link"><strong>GitHub:</strong> ${project.repository}</span>` : ''}
+      </div>
+    `;
+
     return `
       <article class="project-card">
         <div class="project-image">
@@ -63,6 +108,8 @@ function renderProjects(projects) {
         <div class="project-content">
           <h3>${project.name}</h3>
           <p class="project-description">${project.description}</p>
+          ${detailsHtml}
+          ${printLinksHtml}
           <div class="project-actions">
             ${project.demoUrl ? `<a href="${project.demoUrl}" class="project-btn" target="_blank" rel="noopener noreferrer">demo</a>` : ''}
             ${project.repository ? `<a href="${project.repository}" class="project-btn" target="_blank" rel="noopener noreferrer">code</a>` : ''}
@@ -74,6 +121,7 @@ function renderProjects(projects) {
 
   document.getElementById('projects-list').innerHTML = projectsHtml;
 }
+
 
 function renderContactCompact(contact) {
   const iconMap = {

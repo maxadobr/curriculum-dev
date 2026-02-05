@@ -92,7 +92,8 @@
     "longTerm": "Longo Prazo",
     "weeklyHours": "Horas Semanais",
     "modalities": "Modalidades",
-    "immediateStart": "Início Imediato"
+    "immediateStart": "Início Imediato",
+    "details": "Detalhes"
   },
   "value": {
     "status": {
@@ -157,8 +158,8 @@
         ]
       },
       "portfolio": {
-        "description": "Portfolio pessoal para apresentar projetos e estudos mais recentes.",
-        "type": "Website - Portfolio Pessoal",
+        "description": "Portfólio pessoal para apresentar projetos e estudos mais recentes.",
+        "type": "Website - Portfólio Pessoal",
         "features": [
           "Dark/Light mode",
           "Design responsivo",

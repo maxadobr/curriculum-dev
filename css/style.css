@@ -11,7 +11,25 @@
 
 .a4-page {
   width: 100%;
-  min-height: 100vh;
+  max-width: 210mm;
+  min-height: 297mm;
+  margin: 0 auto;
+  background-color: var(--bg-secondary);
+}
+
+/* A4 Page setup for print/PDF export */
+@page {
+  size: A4 portrait;
+  margin: 10mm;
+}
+
+/* Screen preview with A4 proportions */
+@media screen {
+  .a4-page {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    margin: 20px auto;
+    padding: var(--spacing-lg);
+  }
 }
 
 /* ==========================================
@@ -229,7 +247,7 @@ section h2 {
 /* Card content */
 .project-content {
   padding: var(--spacing-md);
-  text-align: center;
+  text-align: left;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -246,9 +264,12 @@ section h2 {
 .project-card .project-description {
   color: var(--text-secondary);
   font-size: var(--font-size-sm);
-  line-height: 1.5;
+  line-height: 1.4;
   flex: 1;
-  margin-bottom: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
+  text-align: left;
+  hyphens: auto;
+  -webkit-hyphens: auto;
 }
 
 /* Action buttons */
@@ -279,6 +300,76 @@ section h2 {
   color: white;
   transform: translateY(-1px);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+/* Project Details Dropdown (Web only) */
+.project-details {
+  margin: var(--spacing-xs) 0;
+  text-align: center;
+}
+
+.project-details summary {
+  cursor: pointer;
+  color: var(--accent-coffee);
+  font-size: 0.7rem;
+  font-weight: 500;
+  padding: 4px 8px;
+  border: 1px solid var(--accent-coffee-light);
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  display: inline-block;
+  background-color: transparent;
+}
+
+.project-details summary:hover {
+  background-color: var(--accent-coffee-light);
+  color: var(--bg-primary);
+}
+
+.project-details[open] summary {
+  border-style: solid;
+  margin-bottom: var(--spacing-xs);
+}
+
+.project-details-content {
+  padding: var(--spacing-xs);
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+  hyphens: auto;
+  -webkit-hyphens: auto;
+}
+
+.project-details-content h4 {
+  color: var(--accent-coffee);
+  font-size: 0.65rem;
+  margin: 4px 0 2px 0;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.project-details-content ul {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px 8px;
+}
+
+.project-details-content li {
+  font-size: 0.65rem;
+  line-height: 1.2;
+  white-space: normal;
+}
+
+.project-details-content li::before {
+  content: "•\00a0";
+  color: var(--accent-coffee-light);
+}
+
+/* Print-only links (hidden on screen) */
+.project-print-links {
+  display: none;
 }
 
 /* ==========================================
@@ -914,38 +1005,68 @@ section h2 {
 }
 
 /* ==========================================
-   PRINT STYLES
+   PRINT STYLES - ATS COMPATIBLE A4
    ========================================== */
 
 @media print {
+
+  /* Reset for clean print */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  html,
+  body {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0;
+    padding: 0;
+    background: white !important;
+    font-size: 11pt;
+    /* Optimal for print readability */
+  }
+
   #resume-container {
-    max-width: 100%;
-    padding: 10mm;
-    background-color: white;
+    width: 100%;
+    max-width: 210mm;
+    padding: 0;
+    margin: 0;
+    background-color: white !important;
+    box-shadow: none !important;
   }
 
   .a4-page {
     width: 210mm;
-    min-height: 297mm;
+    min-height: auto;
+    margin: 0;
+    padding: 5mm;
+    background-color: white !important;
+    box-shadow: none !important;
   }
 
-  section {
-    page-break-inside: avoid;
-    break-inside: avoid;
+  /* Page break controls - allow sections to break, but not individual items */
+  /* REMOVED page-break-inside: avoid from section to prevent large white spaces */
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    page-break-after: avoid;
+    break-after: avoid;
   }
 
-  .divider {
-    background: #000000;
-  }
-
-  /* Ensure all text is black for ATS */
+  /* Ensure text is scannable by ATS - high contrast black text */
   body,
   p,
   span,
   div,
   li,
   td,
-  th {
+  th,
+  a {
     color: #000000 !important;
   }
 
@@ -955,23 +1076,594 @@ section h2 {
   h4,
   h5,
   h6 {
-    color: #000000 !important;
+    color: #4a3520 !important;
+    /* Subtle coffee tone instead of black */
   }
 
-  /* Keep accent colors subtle */
-  .project-card,
-  .education-card,
-  .experience-card {
-    border-left-color: #666666;
+  /* Section headers with accent color */
+  section h2 {
+    color: #5c4033 !important;
+    border-bottom-color: #8b6914 !important;
   }
 
-  /* Simplify backgrounds */
+  /* Name header with warm tone */
+  #name {
+    color: #3d2914 !important;
+  }
+
+  /* Divider visible but subtle */
+  .divider {
+    background: #333333 !important;
+    height: 2px !important;
+    margin: 2mm auto !important;
+  }
+
+  /* =============================================
+     GLOBAL COMPACT PRINT STYLES
+     ============================================= */
+
+  /* Reduce all section spacing */
+  .section,
+  section,
+  .skills-languages-row {
+    margin-bottom: 3mm !important;
+    padding-bottom: 1mm !important;
+  }
+
+  /* Compact section headers */
+  section h2 {
+    font-size: 12pt !important;
+    margin-bottom: 2mm !important;
+    padding-bottom: 1mm !important;
+    border-bottom-width: 1px !important;
+  }
+
+  /* Header compaction */
+  .header {
+    margin-bottom: 2mm !important;
+  }
+
+  #name {
+    font-size: 16pt !important;
+    margin-bottom: 1mm !important;
+  }
+
+  /* Contact section compact */
+  .persona-info-compact-section {
+    margin-bottom: 2mm !important;
+  }
+
+  #contact-compact-list {
+    gap: 3mm 5mm !important;
+    font-size: 9pt !important;
+  }
+
+  .contact-compact-item i {
+    font-size: 9pt !important;
+  }
+
+  /* About section compact */
+  .about-section {
+    margin-bottom: 3mm !important;
+  }
+
+  #about-me-container {
+    font-size: 9pt !important;
+    line-height: 1.3 !important;
+  }
+
+  #about-me-container h3,
+  #about-me-container h4 {
+    font-size: 10pt !important;
+    margin-top: 2mm !important;
+    margin-bottom: 1mm !important;
+  }
+
+  /* =============================================
+     SKILLS - Ultra compact inline print layout
+     ============================================= */
+
+  .skills h2,
+  .professional-skills h2,
+  .languages h2 {
+    font-size: 10pt !important;
+    margin-bottom: 1mm !important;
+  }
+
+  /* Skills grid - flexible columns based on content width */
+  .skills-grid {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 1mm 3mm !important;
+  }
+
+  .skills-grid>div {
+    flex: 0 0 auto !important;
+    padding: 0.5mm !important;
+    border: none !important;
+    background: none !important;
+  }
+
+  .skills-grid>div>h3 {
+    font-size: 8pt !important;
+    font-weight: 600 !important;
+    margin-bottom: 0.5mm !important;
+    padding-bottom: 0 !important;
+    border-bottom: none !important;
+  }
+
+  /* Nested headings ultra compact */
+  .skills-grid h4 {
+    font-size: 7pt !important;
+    font-weight: 500 !important;
+    margin: 0.5mm 0 0 0 !important;
+    padding: 0 !important;
+  }
+
+  .skills-grid h5 {
+    font-size: 6pt !important;
+    margin: 0.3mm 0 0 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Lists - vertical with bullet points, one per line */
+  .skills-grid ul {
+    display: block !important;
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .skills-grid ul li {
+    display: block !important;
+    font-size: 7pt !important;
+    line-height: 1.2 !important;
+    padding-left: 2mm !important;
+    position: relative !important;
+  }
+
+  .skills-grid ul li::before {
+    content: "•" !important;
+    color: #000 !important;
+    position: absolute !important;
+    left: 0 !important;
+  }
+
+  .skills-grid p {
+    font-size: 7pt !important;
+    margin: 0 !important;
+    line-height: 1.1 !important;
+  }
+
+  /* Development Tools - wider with 2 internal columns */
+  .skills-grid>.developmentTools {
+    flex: 1 1 40% !important;
+    column-count: 2 !important;
+    column-gap: 3mm !important;
+  }
+
+  /* Title spans across both columns */
+  .skills-grid>.developmentTools>h3 {
+    column-span: all !important;
+  }
+
+  .skills-grid>.developmentTools>* {
+    break-inside: avoid !important;
+  }
+
+  /* Skills-languages row - side by side, compact */
+  .skills-languages-row {
+    display: flex !important;
+    gap: 2mm !important;
+    margin-bottom: 2mm !important;
+  }
+
+  .skills-languages-row>section {
+    flex: 1 !important;
+    min-width: auto !important;
+  }
+
+  /* Language items - vertical layout, one language per block */
+  .languages .skills-grid {
+    display: block !important;
+  }
+
+  .language-item {
+    display: block !important;
+    margin-bottom: 2mm !important;
+    padding-bottom: 1mm !important;
+    border-bottom: 1px solid #ccc !important;
+  }
+
+  .language-item:last-child {
+    border-bottom: none !important;
+    margin-bottom: 0 !important;
+  }
+
+  .language-item h3 {
+    display: block !important;
+    font-size: 9pt !important;
+    font-weight: 600 !important;
+    margin-bottom: 0.5mm !important;
+  }
+
+  .language-item p {
+    display: block !important;
+    font-size: 7pt !important;
+    margin: 0.3mm 0 !important;
+    line-height: 1.2 !important;
+  }
+
+  .language-item strong {
+    font-size: 7pt !important;
+    padding-left: 0 !important;
+  }
+
+  .language-skills {
+    margin-top: 0.5mm !important;
+  }
+
+  .language-skills ul {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 1mm !important;
+  }
+
+  .language-skills ul li {
+    display: inline-block !important;
+    font-size: 6pt !important;
+    padding: 0.5mm 1mm !important;
+    background: #f0f0f0 !important;
+    border-radius: 1mm !important;
+  }
+
+  .language-skills ul li::before {
+    content: none !important;
+  }
+
+  /* Professional skills compact */
+  .professional-skills .skills-grid ul li {
+    font-size: 9pt !important;
+    margin-bottom: 1mm !important;
+    padding: 0 !important;
+    padding-left: 3mm !important;
+  }
+
+  /* Education compact */
+  .education-content {
+    padding: 2mm !important;
+  }
+
+  .education-card h3 {
+    font-size: 9pt !important;
+    margin-bottom: 1mm !important;
+  }
+
+  .education-institution,
+  .education-period {
+    font-size: 8pt !important;
+    margin-bottom: 1mm !important;
+  }
+
+  .education-status {
+    font-size: 7pt !important;
+    padding: 1px 4px !important;
+    margin-bottom: 1mm !important;
+  }
+
+  .education-tags {
+    margin-top: 1mm !important;
+  }
+
+  .tech-tag {
+    font-size: 6pt !important;
+    padding: 1px 3px !important;
+  }
+
+  /* Minor education cards */
+  .education-minor-grid {
+    gap: 2mm !important;
+    margin-top: 2mm !important;
+    padding-top: 2mm !important;
+  }
+
+  .education-card-minor {
+    padding: 1mm 2mm !important;
+    max-width: 120px !important;
+  }
+
+  .education-card-minor h4 {
+    font-size: 7pt !important;
+  }
+
+  .education-card-minor p {
+    font-size: 6pt !important;
+  }
+
+  /* Experience compact */
+  .experience-content {
+    padding: 2mm !important;
+  }
+
+  .experience-card h3 {
+    font-size: 10pt !important;
+    margin-bottom: 1mm !important;
+  }
+
+  .experience-institution,
+  .experience-period {
+    font-size: 8pt !important;
+    margin-bottom: 1mm !important;
+  }
+
+  .entry-details {
+    font-size: 8pt !important;
+    margin-top: 1mm !important;
+  }
+
+  .entry-details li {
+    margin-bottom: 1mm !important;
+    padding-left: 3mm !important;
+  }
+
+  /* Personal info compact */
+  .personal-info {
+    margin-bottom: 2mm !important;
+  }
+
+  .business-card {
+    padding: 2mm !important;
+    gap: 2mm !important;
+  }
+
+  .business-card-name {
+    font-size: 11pt !important;
+  }
+
+  .business-card-location {
+    font-size: 8pt !important;
+  }
+
+  .business-card-contact {
+    gap: 2mm !important;
+  }
+
+  .business-card-contact-item {
+    font-size: 8pt !important;
+    padding: 1mm 2mm !important;
+  }
+
+  /* Availability & Goals compact */
+  .availability,
+  .career-goals {
+    margin-bottom: 2mm !important;
+  }
+
+  /* Remove decorative elements that confuse ATS */
   .project-card,
   .education-card,
   .education-card-minor,
   .experience-card,
-  .experience-card-minor {
-    background-color: transparent;
-    box-shadow: none;
+  .experience-card-minor,
+  .skills-grid>div,
+  .business-card {
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+  }
+
+  /* Keep major cards visually distinct with larger font */
+  .education-card-major,
+  .experience-card-major {
+    border-top: none !important;
+    padding-top: 0 !important;
+    margin-bottom: 3mm !important;
+  }
+
+  .education-card-major h3,
+  .experience-card-major h3 {
+    font-size: 12pt !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+  }
+
+  .education-card-major .education-institution,
+  .experience-card-major .experience-institution {
+    font-size: 9pt !important;
+    font-weight: 600 !important;
+  }
+
+  .education-card-major .education-period,
+  .experience-card-major .experience-period {
+    font-size: 8pt !important;
+  }
+
+  /* Links should show URL for ATS parsing */
+  a[href]:not(.contact-compact-item):not(.project-btn):not(.business-card-contact-item)::after {
+    content: " (" attr(href) ")";
+    font-size: 0.7em;
+    color: #666666 !important;
+  }
+
+  /* But keep contact links clean */
+  .contact-compact-item a::after,
+  .project-btn::after,
+  .business-card-contact-item::after {
+    content: none !important;
+  }
+
+  /* Hide hover effects and transforms */
+  .project-card:hover,
+  .education-card:hover,
+  .experience-card:hover {
+    transform: none !important;
+  }
+
+  /* =============================================
+     PROJECTS - Ultra compact print layout
+     ============================================= */
+
+  /* Show project images in print - smaller size for visual appeal */
+  .project-image {
+    display: block !important;
+    height: 120px !important;
+    overflow: hidden !important;
+    border-radius: 6px !important;
+  }
+
+  .project-image img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+
+  /* Hide project buttons in print - just show names and descriptions */
+  .project-actions {
+    display: none !important;
+  }
+
+  /* Projects section - minimal margin */
+  section:has(.projects-grid) {
+    margin-bottom: 2mm !important;
+  }
+
+  /* Projects grid - compact 4-column layout */
+  .projects-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 2mm !important;
+  }
+
+  .project-card {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    border: none !important;
+    border-bottom: 1px solid #cccccc !important;
+    padding: 1mm !important;
+    border-radius: 0 !important;
+  }
+
+  .project-content {
+    padding: 0 !important;
+  }
+
+  .project-card h3 {
+    font-size: 8pt !important;
+    margin-bottom: 1mm !important;
+    font-style: normal !important;
+  }
+
+  .project-card .project-description {
+    font-size: 7pt !important;
+    margin-bottom: 0 !important;
+    line-height: 1.2 !important;
+  }
+
+  /* Hide dropdown in print */
+  .project-details {
+    display: none !important;
+  }
+
+  /* Show print links in print version */
+  .project-print-links {
+    display: block !important;
+    margin-top: 1mm !important;
+  }
+
+  .project-print-links .print-link {
+    display: block !important;
+    font-size: 5pt !important;
+    color: #555555 !important;
+    word-break: break-all !important;
+    line-height: 1.3 !important;
+  }
+
+  /* =============================================
+     OTHER GRIDS - Print layout
+     ============================================= */
+
+  .education-grid,
+  .experience-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: var(--spacing-sm) !important;
+  }
+
+  .education-card,
+  .experience-card {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  .education-grid>*,
+  .experience-grid>* {
+    margin-bottom: var(--spacing-xs);
+  }
+
+  /* Skills grid as inline for compactness */
+  .skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+  }
+
+  .skills-grid>div {
+    flex: 1 1 45%;
+  }
+
+  /* Contact bar stays horizontal */
+  #contact-compact-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  /* Font awesome icons visible but smaller */
+  .fa,
+  .fas,
+  .fab,
+  .far {
+    font-size: 0.9em !important;
+  }
+
+  /* Status badges - subtle, no button appearance */
+  .education-status,
+  .experience-status {
+    background: none !important;
+    color: #666666 !important;
+    border: none !important;
+    font-style: italic !important;
+    padding: 0 !important;
+  }
+
+  /* Tech tags - subtle inline text */
+  .tech-tag {
+    background: none !important;
+    color: #555555 !important;
+    border: none !important;
+    padding: 0 1mm !important;
+    font-size: 6pt !important;
+  }
+
+  /* Language skill badges - subtle */
+  .language-skills ul li {
+    background: none !important;
+    border: none !important;
+    padding: 0 !important;
+    font-size: 6pt !important;
+    color: #555555 !important;
+  }
+
+  .language-skills ul li:not(:last-child)::after {
+    content: " · " !important;
+  }
+
+  /* Prevent large white spaces */
+  section {
+    margin-bottom: var(--spacing-sm) !important;
+    padding-bottom: var(--spacing-xs) !important;
   }
 }
