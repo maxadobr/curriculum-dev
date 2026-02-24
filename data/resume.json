@@ -18,7 +18,7 @@
             "name": "Curriculum Developer",
             "description": "The exact source code of this Curriculum Vitae. A dynamic, responsive Web Resume engine building from JSON data with complete ATS-optimized print formatting.",
             "type": "Web Application - Portfolio Engine",
-            "image": "./assets/img/projects/portfolio.png",
+            "image": "./assets/img/projects/curriculum-dev.png",
             "repository": "https://github.com/maxadobr/curriculum-dev",
             "demoUrl": "https://maxadobr.github.io/curriculum-dev/",
             "status": "Continuous maintenance",
