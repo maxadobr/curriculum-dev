@@ -15,6 +15,28 @@
     },
     "projects": [
         {
+            "name": "Curriculum Developer",
+            "description": "The exact source code of this Curriculum Vitae. A dynamic, responsive Web Resume engine building from JSON data with complete ATS-optimized print formatting.",
+            "type": "Web Application - Portfolio Engine",
+            "image": "./assets/img/projects/portfolio.png",
+            "repository": "https://github.com/maxadobr/curriculum-dev",
+            "demoUrl": "https://maxadobr.github.io/curriculum-dev/",
+            "status": "Continuous maintenance",
+            "technologies": [
+                "HTML5",
+                "CSS3",
+                "JavaScript",
+                "JSON"
+            ],
+            "features": [
+                "Dynamic rendering from JSON",
+                "i18n Internationalization",
+                "ATS-optimized PDF rendering",
+                "Responsive design",
+                "Dark/Light automatic theme switching"
+            ]
+        },
+        {
             "name": "Clarity Board",
             "description": "Task management and prioritization Web App, focused on helping the user decide which tasks to execute next.",
             "type": "Web Application - Task Management and Prioritization",
@@ -144,7 +166,7 @@
             ]
         },
         "backend": {
-            "languages": [
+            "programmingLanguages": [
                 "Python",
                 "C"
             ],
@@ -255,7 +277,8 @@
                 ]
             },
             {
-                "name": "Bootcamp Santander Open Academy 2025 / DIO 2025 Front-End",
+                "name": "Bootcamp Santander Open Academy Frontend 2025",
+                "institution": "DIO/Santander",
                 "completionDate": "08/2025",
                 "workload": "102h",
                 "status": "Completed",

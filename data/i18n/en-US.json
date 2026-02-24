@@ -49,7 +49,7 @@
     "techCourses": "Tech Courses",
     "technicalCourses": "Technical Courses",
     "degree": "Degree",
-    "institution": "Institution",
+    "institution": "Institution / Platform",
     "duration": "Duration",
     "startDate": "Start Date",
     "completionDate": "Completion Date",
@@ -92,7 +92,10 @@
     "longTerm": "Long Term",
     "weeklyHours": "Weekly Hours",
     "modalities": "Modalities",
-    "immediateStart": "Immediate Start"
+    "immediateStart": "Immediate Start",
+    "details": "Details",
+    "from": "From",
+    "to": "To"
   },
   "value": {
     "status": {

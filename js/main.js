@@ -100,6 +100,26 @@ function renderProjects(projects) {
       </div>
     `;
 
+    // Print-only inline details
+    const featuresLabel = translateKey('features') || 'Features';
+    const techLabel = translateKey('technologies') || 'Technologies';
+
+    let inlineDetailsPrintHtml = '';
+    if (project.technologies || project.features || project.technicalHighlights) {
+      inlineDetailsPrintHtml = `<div class="project-inline-details-print">`;
+
+      if (project.technologies && project.technologies.length > 0) {
+        inlineDetailsPrintHtml += `<span class="detail-item"><span class="detail-label">${techLabel}:</span> <span class="detail-value">${project.technologies.join(', ')}</span></span>`;
+      }
+
+      const combinedFeatures = [...(project.features || []), ...(project.technicalHighlights || [])];
+      if (combinedFeatures.length > 0) {
+        inlineDetailsPrintHtml += `<span class="detail-item"><span class="detail-sep"> | </span><span class="detail-label">${featuresLabel}:</span> <span class="detail-value">${combinedFeatures.join(' • ')}</span></span>`;
+      }
+
+      inlineDetailsPrintHtml += `</div>`;
+    }
+
     return `
       <article class="project-card">
         <div class="project-image">
@@ -108,6 +128,7 @@ function renderProjects(projects) {
         <div class="project-content">
           <h3>${project.name}</h3>
           <p class="project-description">${project.description}</p>
+          ${inlineDetailsPrintHtml}
           ${detailsHtml}
           ${printLinksHtml}
           <div class="project-actions">
@@ -154,8 +175,28 @@ function renderContactCompact(contact) {
 function renderLanguages(languages) {
   let html = '';
 
-  languages.forEach(lang => {
-    html += `<div class="language-item">`;
+  languages.forEach((lang, index) => {
+    const isLast = index === languages.length - 1;
+
+    // Inline Print Layout
+    html += `<span class="language-item-inline">`;
+    html += `<span class="detail-label">${lang.language}</span>`;
+
+    if (lang.level) {
+      html += ` - <span class="detail-value">${lang.level}</span>`;
+    }
+
+    if (lang.skills && lang.skills.length > 0) {
+      html += ` <span class="detail-sep">|</span> <span class="detail-value">${lang.skills.join(', ')}</span>`;
+    }
+
+    if (lang.institution) {
+      html += ` <span class="detail-sep">|</span> <span class="detail-value">${lang.institution}</span>`;
+    }
+    html += `${!isLast ? ' <span class="detail-sep">|</span> ' : ''}</span>`;
+
+    // Regular Screen Layout
+    html += `<div class="language-item language-item-regular">`;
     html += `<h3>${lang.language}</h3>`;
 
     if (lang.level) {
@@ -284,13 +325,27 @@ function renderCardsSection(data, sectionType, targetElementId) {
       ? `${mainItem.startDate} - ${mainItem.completionDate}`
       : mainItem.period || '';
 
+    let mainInlineDetailsHtml = '';
+    if (sectionType === 'education') {
+      mainInlineDetailsHtml = `
+        <div class="education-details-inline">
+          ${mainItem.institution ? `<span class="detail-item"><span class="detail-label">${translateKey('institution')}:</span> <span class="detail-value">${mainItem.institution}</span><span class="detail-sep"> | </span></span>` : ''}
+          ${period ? `<span class="detail-item"><span class="detail-label">${translateKey('completionDate')}:</span> <span class="detail-value">${period}</span><span class="detail-sep"> | </span></span>` : ''}
+          ${mainItem.status ? `<span class="detail-item"><span class="detail-label">${translateKey('status')}:</span> <span class="detail-value ${cardUtils.getStatusClass(mainItem.status)}">${cardUtils.getTranslatedStatus(mainItem.status)}</span></span>` : ''}
+        </div>
+      `;
+    }
+
     html += `
       <article class="${cssPrefix}-card ${cssPrefix}-card-major">
         <div class="${cssPrefix}-content">
           <h3>${mainItem.degree || mainItem.role || mainItem.name}</h3>
-          <p class="${cssPrefix}-institution">${mainItem.institution || mainItem.company || ''}</p>
-          <p class="${cssPrefix}-period">${period}</p>
-          ${mainItem.status ? `<span class="${cssPrefix}-status ${cardUtils.getStatusClass(mainItem.status)}">${cardUtils.getTranslatedStatus(mainItem.status)}</span>` : ''}
+          ${mainInlineDetailsHtml}
+          <div class="${cssPrefix}-details-regular">
+            <p class="${cssPrefix}-institution">${mainItem.institution || mainItem.company || ''}</p>
+            <p class="${cssPrefix}-period">${period}</p>
+            ${mainItem.status ? `<span class="${cssPrefix}-status ${cardUtils.getStatusClass(mainItem.status)}">${cardUtils.getTranslatedStatus(mainItem.status)}</span>` : ''}
+          </div>
         </div>
       </article>
     `;
@@ -306,7 +361,7 @@ function renderCardsSection(data, sectionType, targetElementId) {
       const institution = entry.institution || entry.platform || entry.company || '';
       const date = entry.completionDate || entry.expectedStartDate || '';
       const workload = entry.workload || '';
-      const focusTags = entry.focus ? entry.focus.map(f => `<span class="tech-tag">${f}</span>`).join('') : '';
+      const focusTags = entry.focus ? entry.focus.join(', ') : '';
 
       // Build period string for experience entries
       let periodStr = date;
@@ -315,7 +370,6 @@ function renderCardsSection(data, sectionType, targetElementId) {
           ? `${entry.period.start || ''} - ${entry.period.end || translateKey('present')}`
           : entry.period;
       }
-      if (workload) periodStr += ` • ${workload}`;
 
       // Build responsibilities/achievements list
       let detailsHtml = '';
@@ -328,14 +382,58 @@ function renderCardsSection(data, sectionType, targetElementId) {
         detailsHtml += '</ul>';
       }
 
+      // For education and experience, format as inline details for ATS print
+      const isEducation = sectionType === 'education';
+      const isExperience = sectionType === 'experience';
+
+      let inlineDetailsHtml = '';
+      if (isEducation) {
+        inlineDetailsHtml = `
+          <div class="education-details-inline">
+            ${institution ? `<span class="detail-item"><span class="detail-label">${translateKey('institution')}:</span> <span class="detail-value">${institution}</span><span class="detail-sep"> | </span></span>` : ''}
+            ${date ? `<span class="detail-item"><span class="detail-label">${translateKey('completionDate')}:</span> <span class="detail-value">${date}</span><span class="detail-sep"> | </span></span>` : ''}
+            ${workload ? `<span class="detail-item"><span class="detail-label">${translateKey('workload')}:</span> <span class="detail-value">${workload}</span><span class="detail-sep"> | </span></span>` : ''}
+            ${entry.status ? `<span class="detail-item"><span class="detail-label">${translateKey('status')}:</span> <span class="detail-value ${cardUtils.getStatusClass(entry.status)}">${cardUtils.getTranslatedStatus(entry.status)}</span><span class="detail-sep"> | </span></span>` : ''}
+            ${focusTags ? `<span class="detail-item"><span class="detail-label">${translateKey('technologies')}:</span> <span class="detail-value">${focusTags}</span></span>` : ''}
+          </div>
+        `;
+      } else if (isExperience) {
+        const roleLabel = translateKey('role') || (document.documentElement.lang === 'pt' ? 'Função' : 'Role');
+        const companyLabel = translateKey('company') || (document.documentElement.lang === 'pt' ? 'Empresa' : 'Company');
+        const fromLabel = translateKey('from') || (document.documentElement.lang === 'pt' ? 'De' : 'From');
+        const toLabel = translateKey('to') || (document.documentElement.lang === 'pt' ? 'Até' : 'To');
+
+        let expPeriodStr = date;
+        if (entry.period) {
+          expPeriodStr = typeof entry.period === 'object'
+            ? `<span class="detail-label">${fromLabel}:</span> <span class="detail-value">${entry.period.start || ''}</span><span class="detail-sep"> ${toLabel}: </span><span class="detail-value">${entry.period.end || translateKey('present')}</span>`
+            : entry.period;
+        }
+
+        inlineDetailsHtml = `
+          <div class="experience-details-inline">
+            <span class="detail-item"><span class="detail-label">${roleLabel}:</span> <span class="detail-value">${title}</span><span class="detail-sep"> | </span></span>
+            ${institution ? `<span class="detail-item"><span class="detail-label">${companyLabel}:</span> <span class="detail-value">${institution}</span><span class="detail-sep"> | </span></span>` : ''}
+            <span class="detail-item">${expPeriodStr}</span>
+          </div>
+        `;
+      }
+
+      const regularDetailsHtml = `
+        <div class="${cssPrefix}-details-regular">
+          ${institution ? `<p class="${cssPrefix}-institution">${institution}</p>` : ''}
+          <p class="${cssPrefix}-period">${periodStr}${workload ? ` &bull; ${workload}` : ''}</p>
+          ${entry.status ? `<span class="${cssPrefix}-status ${cardUtils.getStatusClass(entry.status)}">${cardUtils.getTranslatedStatus(entry.status)}</span>` : ''}
+          ${entry.focus ? `<div class="${cssPrefix}-tags">${entry.focus.map(f => `<span class="tech-tag">${f}</span>`).join('')}</div>` : ''}
+        </div>
+      `;
+
       html += `
         <article class="${cssPrefix}-card">
           <div class="${cssPrefix}-content">
             <h3>${title}</h3>
-            ${institution ? `<p class="${cssPrefix}-institution">${institution}</p>` : ''}
-            <p class="${cssPrefix}-period">${periodStr}</p>
-            ${entry.status ? `<span class="${cssPrefix}-status ${cardUtils.getStatusClass(entry.status)}">${cardUtils.getTranslatedStatus(entry.status)}</span>` : ''}
-            ${focusTags ? `<div class="${cssPrefix}-tags">${focusTags}</div>` : ''}
+            ${inlineDetailsHtml}
+            ${regularDetailsHtml}
             ${detailsHtml}
           </div>
         </article>
@@ -346,20 +444,54 @@ function renderCardsSection(data, sectionType, targetElementId) {
   // Minor entries (technicalCourses for education, older/apprentice roles for experience)
   const minorEntries = data.technicalCourses || null;
   if (minorEntries && minorEntries.length > 0) {
+    const isEducationFormat = sectionType === 'education';
     html += `<div class="${cssPrefix}-minor-grid">`;
-    minorEntries.forEach(entry => {
-      const title = entry.name || entry.role || '';
-      const details = entry.institution
-        ? `${entry.institution} • ${entry.year || ''} • ${entry.workload || ''}`
-        : entry.activities || '';
 
-      html += `
-        <article class="${cssPrefix}-card-minor">
-          <h4>${title}</h4>
-          <p>${details}</p>
-        </article>
-      `;
-    });
+    if (isEducationFormat) {
+      // First, render the print-friendly inline version (hidden on screen)
+      minorEntries.forEach((entry, index) => {
+        const title = entry.name || entry.role || '';
+        const institution = entry.institution || '';
+        const isLast = index === minorEntries.length - 1;
+
+        html += `
+          <span class="${cssPrefix}-minor-inline-item">
+            ${institution ? `${institution}, ` : ''}${title}${!isLast ? ' <span class="detail-sep">|</span> ' : ''}
+          </span>
+        `;
+      });
+      // Second, render the normal blocks wrapped in a div we can hide when printed
+      html += `<div class="${cssPrefix}-card-minor-regular" style="display: contents;">`;
+      minorEntries.forEach(entry => {
+        const title = entry.name || entry.role || '';
+        const details = entry.institution
+          ? `${entry.institution} • ${entry.year || ''} • ${entry.workload || ''}`
+          : entry.activities || '';
+
+        html += `
+          <article class="${cssPrefix}-card-minor">
+            <h4>${title}</h4>
+            <p>${details}</p>
+          </article>
+        `;
+      });
+      html += `</div>`;
+    } else {
+      minorEntries.forEach(entry => {
+        const title = entry.name || entry.role || '';
+        const details = entry.institution
+          ? `${entry.institution} • ${entry.year || ''} • ${entry.workload || ''}`
+          : entry.activities || '';
+
+        html += `
+          <article class="${cssPrefix}-card-minor">
+            <h4>${title}</h4>
+            <p>${details}</p>
+          </article>
+        `;
+      });
+    }
+
     html += '</div>';
   }
 

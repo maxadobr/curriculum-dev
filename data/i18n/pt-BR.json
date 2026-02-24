@@ -49,7 +49,7 @@
     "techCourses": "Cursos de Tecnologia",
     "technicalCourses": "Cursos Técnicos",
     "degree": "Curso",
-    "institution": "Instituição",
+    "institution": "Instituição / Plataforma",
     "duration": "Duração",
     "startDate": "Data de Início",
     "completionDate": "Data de Conclusão",
@@ -93,7 +93,9 @@
     "weeklyHours": "Horas Semanais",
     "modalities": "Modalidades",
     "immediateStart": "Início Imediato",
-    "details": "Detalhes"
+    "details": "Detalhes",
+    "from": "De",
+    "to": "Até"
   },
   "value": {
     "status": {
@@ -123,7 +125,7 @@
   },
   "content": {
     "aboutMe": {
-      "professionalSummary": "Estudante de Engenharia de Software e Desenvolvedor Web em formação, buscando oportunidade de estágio em tecnologia. Desde 2017 tenho incorporado na minha rotina resolução de problemas complexos, gestão de projetos e otimização de sistemas. Habilidades estas que agora direciono para soluções de software eficientes, impulsionado por uma forte experiência com IA para aprendizado acelerado, revisão de código e prototipagem rápida.",
+      "professionalSummary": "Estudante de Engenharia de Software e desenvolvedor web em formação. Desde 2017, tenho incorporado à minha rotina a resolução de problemas complexos, a gestão de projetos e a otimização de sistemas. Habilidades que agora direciono para o desenvolvimento de soluções de software eficientes, impulsionado por uma forte fluência com IA para aprendizado acelerado, revisão de código e prototipagem rápida.",
       "objective": "Aplicar conhecimentos em web development para ganhar experiência prática e contribuir em equipe.",
       "keyTechnologies": [
         "HTML5",
@@ -137,6 +139,18 @@
       ]
     },
     "projects": {
+      "curriculumDev": {
+        "description": "O código-fonte exato deste Curriculum Vitae ATS. Um motor de currículo web escalável a partir de dados JSON estruturados.",
+        "type": "Motor Web - Portfólio Escalonável",
+        "repository": "https://github.com/maxadobr/curriculum-dev",
+        "demoUrl": "https://maxadobr.github.io/curriculum-dev/",
+        "features": [
+          "Geração dinâmica a partir de base JSON",
+          "Internacionalização (i18n) em tempo real",
+          "CSS Print Media adaptado 100% para ATS/Parsers",
+          "Responsividade cross-device"
+        ]
+      },
       "clarityBoard": {
         "description": "Aplicação Web de gerenciamento e priorização de tarefas, focada em ajudar o usuário a decidir quais tarefas executar em seguida.",
         "type": "Aplicação Web - Gerenciamento e Priorização de Tarefas",
@@ -221,7 +235,7 @@
         ]
       },
       "backend": {
-        "languages": [
+        "programmingLanguages": [
           "Python",
           "C"
         ],
@@ -324,7 +338,8 @@
           ]
         },
         {
-          "name": "Bootcamp Santander Open Academy 2025 / DIO 2025 Front-End",
+          "name": "Bootcamp Santander Open Academy Frontend 2025",
+          "institution": "DIO/Santander",
           "status": "Concluído",
           "focus": [
             "HTML",
@@ -369,9 +384,9 @@
         "company": "Marcelo Machado - Projetos e Soluções",
         "role": "Consultor Autônomo",
         "responsibilities": [
-          "Desenvolvimento de metodologias de trabalho e produtos especialmente em borracha de linha automotivo e construção civil, tornando os processos mais lucrativos, eficientes e auditáveis.",
-          "Facilitar a adesão de novos funcionários ao processo de produção por meio de uma documentação robusta para a parte técnica, mas simples e objetiva para o corpo fabril.",
-          "Diminuir as possibilidades de falha humana por meio dos sistemas."
+          "Desenvolvimento de metodologias de trabalho e produtos, especialmente em borracha da linha automotiva e de construção civil, tornando os processos mais lucrativos, eficientes e auditáveis.",
+          "Criação de documentações técnicas robustas, simples e objetivas para o corpo fabril, facilitando a adesão e integração de novos funcionários ao processo de produção.",
+          "Mitigação e redução de falhas humanas por meio da sistematização de processos."
         ]
       },
       {
@@ -379,8 +394,8 @@
         "company": "Madox - Autopeças em Borracha ME",
         "role": "Analista de Operações",
         "responsibilities": [
-          "Desenvolver produtos de acordo com as necessidades do mercado.",
-          "Observar tendências do mercado automotivo de reposição.",
+          "Desenvolvimento de produtos de acordo com as necessidades do mercado.",
+          "Observação e análise de tendências do mercado automotivo de reposição.",
           "Elaboração de fichas e desenhos técnicos.",
           "Planejamento e controle de produção e custos."
         ],
@@ -395,7 +410,7 @@
         "company": "Neobor - Indústria de Artefatos de Borracha Ltda",
         "role": "Desenvolvedor de Produtos",
         "responsibilities": [
-          "Desenvolver itens e ferramentas para linhas de construção civil e automotiva.",
+          "Desenvolvimento de itens e ferramentas para as linhas de construção civil e automotiva.",
           "Elaboração de fichas e desenhos técnicos para desenvolvimento, produção e controle de qualidade.",
           "Cálculos e projeções para orçamentos e logística de produtos."
         ],
