@@ -79,6 +79,11 @@
     "language": "Idioma",
     "level": "Nível",
     "fullName": "Nome Completo",
+    "username": "Nome de Usuário",
+    "photo": "Foto",
+    "title": "Título Profissional",
+    "softSkills": "Competências Interpessoais",
+    "certifications": "Certificações",
     "month": "Mês",
     "location": "Localização",
     "city": "Cidade",
@@ -125,7 +130,7 @@
   },
   "content": {
     "aboutMe": {
-      "professionalSummary": "Estudante de Engenharia de Software e desenvolvedor web em formação. Desde 2017, tenho incorporado à minha rotina a resolução de problemas complexos, a gestão de projetos e a otimização de sistemas. Habilidades que agora direciono para o desenvolvimento de soluções de software eficientes, impulsionado por uma forte fluência com IA para aprendizado acelerado, revisão de código e prototipagem rápida.",
+      "professionalSummary": "Estudante de Engenharia de Software com mais de 9 anos de experiência profissional em desenvolvimento de produtos, gestão de projetos e otimização de processos. Atualmente construindo aplicações web com HTML, CSS, JavaScript e Python, com base em fundamentos sólidos incluindo algoritmos e estruturas de dados. Potencializa a produtividade integrando modelos e agentes de IA ao fluxo de desenvolvimento para revisão de código, prototipagem rápida e aprendizado acelerado.",
       "objective": "Aplicar conhecimentos em web development para ganhar experiência prática e contribuir em equipe.",
       "keyTechnologies": [
         "HTML5",
@@ -299,7 +304,14 @@
             "Prototipagem rápida (vibe coding)"
           ]
         }
-      }
+      },
+      "softSkills": [
+        "Comunicação",
+        "Resolução de Problemas",
+        "Organização",
+        "Adaptável",
+        "Aprendizagem Rápida"
+      ]
     },
     "education": {
       "undergraduate": {
@@ -485,6 +497,7 @@
       }
     ],
     "personalInfo": {
+      "title": "Desenvolvedor Front-End | JavaScript, HTML, CSS | Experiência em Gestão e Execução de Projetos Industriais",
       "location": {
         "country": "Brasil"
       }
