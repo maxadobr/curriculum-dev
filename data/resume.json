@@ -1,18 +1,5 @@
 {
-    "aboutMe": {
-        "professionalSummary": "Software Engineering student and Web Developer in training, seeking an internship opportunity in technology. Since 2017, I have incorporated complex problem-solving, project management, and system optimization into my routine. I now direct these skills toward efficient software solutions, driven by strong experience with AI for accelerated learning, code review, and rapid prototyping.",
-        "objective": "Apply web development knowledge to gain practical experience and contribute to a team.",
-        "keyTechnologies": [
-            "HTML5",
-            "CSS3",
-            "JavaScript",
-            "Python",
-            "SQL",
-            "Git",
-            "Linux",
-            "Generative AI (Claude, Gemini, GPT)"
-        ]
-    },
+    "aboutMe": {},
     "projects": [
         {
             "name": "Curriculum Developer",
@@ -230,7 +217,14 @@
                     "Rapid prototyping (vibe coding)"
                 ]
             }
-        }
+        },
+        "softSkills": [
+            "Communication",
+            "Problem Solving",
+            "Organization",
+            "Adaptable",
+            "Fast Learning"
+        ]
     },
     "education": {
         "undergraduate": {
@@ -287,6 +281,12 @@
                     "Git",
                     "CSS",
                     "JavaScript"
+                ],
+                "certifications": [
+                    {
+                        "name": "Santander 2025 - Front-End",
+                        "link": "https://www.dio.me/certificate/DIM8P0AA/share"
+                    }
                 ]
             },
             {
@@ -465,6 +465,8 @@
     ],
     "personalInfo": {
         "fullName": "Marcelo Machado",
+        "username": "@maxadobr",
+        "photo": "https://avatars.githubusercontent.com/u/150363449?v=4",
         "year": 1997,
         "month": 1,
         "location": {
@@ -478,11 +480,7 @@
             "github": "https://github.com/maxadobr"
         }
     },
-    "careerGoals": {
-        "immediate": "Secure an internship opportunity in web development.",
-        "mediumTerm": "Transition web knowledge to develop PC and Mobile apps.",
-        "longTerm": "Create solutions that deliver a pleasant, efficient, and clean user experience."
-    },
+    "careerGoals": {},
     "availability": {
         "weeklyHours": "20-30h",
         "modalities": [

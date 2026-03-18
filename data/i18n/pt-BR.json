@@ -73,12 +73,18 @@
     "engineeringDesign": "Projeto de Engenharia",
     "skills": "Habilidades",
     "officeProductivity": "Produtividade Office",
+    "processes": "Processos",
     "otherTools": "Outras Ferramentas",
     "contact": "Contato",
     "languages": "Idiomas",
     "language": "Idioma",
     "level": "Nível",
     "fullName": "Nome Completo",
+    "username": "Nome de Usuário",
+    "photo": "Foto",
+    "title": "Título Profissional",
+    "softSkills": "Competências Interpessoais",
+    "certifications": "Certificações",
     "month": "Mês",
     "location": "Localização",
     "city": "Cidade",
@@ -124,20 +130,7 @@
     }
   },
   "content": {
-    "aboutMe": {
-      "professionalSummary": "Estudante de Engenharia de Software e desenvolvedor web em formação. Desde 2017, tenho incorporado à minha rotina a resolução de problemas complexos, a gestão de projetos e a otimização de sistemas. Habilidades que agora direciono para o desenvolvimento de soluções de software eficientes, impulsionado por uma forte fluência com IA para aprendizado acelerado, revisão de código e prototipagem rápida.",
-      "objective": "Aplicar conhecimentos em web development para ganhar experiência prática e contribuir em equipe.",
-      "keyTechnologies": [
-        "HTML5",
-        "CSS3",
-        "JavaScript",
-        "Python",
-        "SQL",
-        "Git",
-        "Linux",
-        "IA Generativa (Claude, Gemini, GPT)"
-      ]
-    },
+    "aboutMe": {},
     "projects": {
       "curriculumDev": {
         "description": "O código-fonte exato deste Curriculum Vitae ATS. Um motor de currículo web escalável a partir de dados JSON estruturados.",
@@ -299,7 +292,14 @@
             "Prototipagem rápida (vibe coding)"
           ]
         }
-      }
+      },
+      "softSkills": [
+        "Comunicação",
+        "Resolução de Problemas",
+        "Organização",
+        "Adaptável",
+        "Aprendizagem Rápida"
+      ]
     },
     "education": {
       "undergraduate": {
@@ -489,11 +489,7 @@
         "country": "Brasil"
       }
     },
-    "careerGoals": {
-      "immediate": "Conseguir oportunidade de estágio em desenvolvimento web.",
-      "mediumTerm": "Transicionar conhecimento de web para desenvolver aplicativos PC e Mobile.",
-      "longTerm": "Criar soluções que tenham o poder de entregar uma experiência prazerosa, eficiente e limpa ao usuário."
-    },
+    "careerGoals": {},
     "availability": {
       "modalities": [
         "Remoto",

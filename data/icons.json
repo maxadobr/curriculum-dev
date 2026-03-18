@@ -1,0 +1,92 @@
+{
+  "technologies": {
+    "html": {
+      "devicon": "devicon-html5-plain"
+    },
+    "css": {
+      "devicon": "devicon-css3-plain"
+    },
+    "javascript": {
+      "devicon": "devicon-javascript-plain"
+    },
+    "python": {
+      "devicon": "devicon-python-plain"
+    },
+    "flask": {
+      "devicon": "devicon-flask-plain"
+    },
+    "c": {
+      "devicon": "devicon-c-plain"
+    },
+    "react": {
+      "devicon": "devicon-react-original"
+    },
+    "figma": {
+      "devicon": "devicon-figma-plain"
+    },
+    "bootstrap": {
+      "devicon": "devicon-bootstrap-plain"
+    },
+    "sqlite": {
+      "devicon": "devicon-sqlite-plain"
+    },
+    "git": {
+      "devicon": "devicon-git-plain"
+    },
+    "github": {
+      "devicon": "devicon-github-original"
+    },
+    "bash": {
+      "devicon": "devicon-bash-plain"
+    },
+    "docker": {
+      "devicon": "devicon-docker-plain"
+    },
+    "windows": {
+      "devicon": "devicon-windows11-original"
+    },
+    "linux": {
+      "devicon": "devicon-linux-plain"
+    },
+    "vscode": {
+      "devicon": "devicon-vscode-plain"
+    },
+    "vim": {
+      "devicon": "devicon-vim-plain"
+    },
+    "trello": {
+      "devicon": "devicon-trello-plain"
+    },
+    "jira": {
+      "devicon": "devicon-jira-plain"
+    },
+    "canva": {
+      "devicon": "devicon-canva-original"
+    }
+  },
+  "contacts": {
+    "email": {
+      "lucide": "mail",
+      "fa": "fa-solid fa-envelope"
+    },
+    "linkedin": {
+      "lucide": "linkedin",
+      "fa": "fa-brands fa-linkedin"
+    },
+    "github": {
+      "lucide": "github",
+      "fa": "fa-brands fa-github"
+    }
+  },
+  "languages": {
+    "pt-BR": {
+      "flag": "br"
+    },
+    "en-US": {
+      "flag": "us"
+    },
+    "de": {
+      "flag": "de"
+    }
+  }
+}
