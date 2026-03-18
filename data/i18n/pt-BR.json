@@ -73,6 +73,7 @@
     "engineeringDesign": "Projeto de Engenharia",
     "skills": "Habilidades",
     "officeProductivity": "Produtividade Office",
+    "processes": "Processos",
     "otherTools": "Outras Ferramentas",
     "contact": "Contato",
     "languages": "Idiomas",
@@ -129,20 +130,7 @@
     }
   },
   "content": {
-    "aboutMe": {
-      "professionalSummary": "Estudante de Engenharia de Software com mais de 9 anos de experiência profissional em desenvolvimento de produtos, gestão de projetos e otimização de processos. Atualmente construindo aplicações web com HTML, CSS, JavaScript e Python, com base em fundamentos sólidos incluindo algoritmos e estruturas de dados. Potencializa a produtividade integrando modelos e agentes de IA ao fluxo de desenvolvimento para revisão de código, prototipagem rápida e aprendizado acelerado.",
-      "objective": "Aplicar conhecimentos em web development para ganhar experiência prática e contribuir em equipe.",
-      "keyTechnologies": [
-        "HTML5",
-        "CSS3",
-        "JavaScript",
-        "Python",
-        "SQL",
-        "Git",
-        "Linux",
-        "IA Generativa (Claude, Gemini, GPT)"
-      ]
-    },
+    "aboutMe": {},
     "projects": {
       "curriculumDev": {
         "description": "O código-fonte exato deste Curriculum Vitae ATS. Um motor de currículo web escalável a partir de dados JSON estruturados.",
@@ -497,16 +485,11 @@
       }
     ],
     "personalInfo": {
-      "title": "Desenvolvedor Front-End | JavaScript, HTML, CSS | Experiência em Gestão e Execução de Projetos Industriais",
       "location": {
         "country": "Brasil"
       }
     },
-    "careerGoals": {
-      "immediate": "Conseguir oportunidade de estágio em desenvolvimento web.",
-      "mediumTerm": "Transicionar conhecimento de web para desenvolver aplicativos PC e Mobile.",
-      "longTerm": "Criar soluções que tenham o poder de entregar uma experiência prazerosa, eficiente e limpa ao usuário."
-    },
+    "careerGoals": {},
     "availability": {
       "modalities": [
         "Remoto",

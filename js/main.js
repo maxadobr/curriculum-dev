@@ -500,7 +500,7 @@ function renderCardsSection(data, sectionType, targetElementId) {
 
 function renderResume(data) {
   document.getElementById('name').textContent = data.personalInfo.fullName;
-  document.getElementById('contact-compact-list').innerHTML = renderContactCompact(data.personalInfo.contact);
+  document.title = data._label ? `${data.personalInfo.fullName} - ${data._label}` : data.personalInfo.fullName;
   document.getElementById('about-me-container').innerHTML = jsonToHtml(data.aboutMe);
 
   renderProjects(data.projects);
@@ -515,6 +515,17 @@ function renderResume(data) {
   document.getElementById('goals-list').innerHTML = jsonToHtml(data.careerGoals);
 
   translateSectionTitles();
+  hideEmptySections();
+}
+
+function hideEmptySections() {
+  const containers = document.querySelectorAll('section, .skills-languages-row');
+  containers.forEach(section => {
+    const content = section.querySelector('[id]');
+    if (content && !content.innerHTML.trim()) {
+      section.style.display = 'none';
+    }
+  });
 }
 
 function translateSectionTitles() {
@@ -603,6 +614,115 @@ function getContentTranslations() {
   return resources?.content || null;
 }
 
+function isLangMap(obj) {
+  if (!obj || typeof obj !== 'object' || Array.isArray(obj)) return false;
+  const keys = Object.keys(obj);
+  const langPattern = /^[a-z]{2}-[A-Z]{2}$/;
+  return keys.length > 0 && keys.every(k => langPattern.test(k));
+}
+
+function resolveLangValue(val) {
+  if (!isLangMap(val)) return val;
+  return val[i18next.language] || val['en-US'] || Object.values(val)[0];
+}
+
+async function applyProfileToResume(resumeData) {
+  try {
+    const urlParams = new URLSearchParams(window.location.search);
+    const area = urlParams.get('area');
+
+    const response = await fetch('./data/profiles.json');
+    if (!response.ok) return resumeData;
+    const profiles = await response.json();
+
+    const activeProfileKey = area && profiles[area] ? area : (profiles._default || null);
+    if (!activeProfileKey || !profiles[activeProfileKey]) {
+      return resumeData;
+    }
+
+    const profile = profiles[activeProfileKey];
+    console.debug(`[Profile] Applying profile: ${activeProfileKey}`);
+
+    let result = JSON.parse(JSON.stringify(resumeData));
+
+    if (profile._hide && Array.isArray(profile._hide)) {
+      profile._hide.forEach(path => {
+        const parts = path.split('.');
+        let current = result;
+        for (let i = 0; i < parts.length - 1; i++) {
+          if (current && current[parts[i]] !== undefined) {
+            current = current[parts[i]];
+          } else {
+            current = null;
+            break;
+          }
+        }
+        if (current) {
+          const lastPart = parts[parts.length - 1];
+          if (Array.isArray(current)) {
+            const isWildcard = lastPart.endsWith('*');
+            const matchPart = isWildcard ? lastPart.slice(0, -1) : lastPart;
+
+            for (let idx = current.length - 1; idx >= 0; idx--) {
+              const item = current[idx];
+              const itemVal = typeof item === 'object'
+                ? (item.name || item.company || item.title || item.degree || item.role || item.language)
+                : item;
+
+              if (itemVal) {
+                const strVal = itemVal.toString();
+                if (isWildcard && strVal.startsWith(matchPart)) {
+                  current.splice(idx, 1);
+                } else if (!isWildcard && strVal === matchPart) {
+                  current.splice(idx, 1);
+                }
+              }
+            }
+          } else {
+            delete current[lastPart];
+          }
+        }
+      });
+    }
+
+    const mergeOverrides = (target, source) => {
+      for (const key of Object.keys(source)) {
+        if (key === '_hide') continue;
+        const val = source[key];
+
+        if (isLangMap(val)) {
+          target[key] = resolveLangValue(val);
+          continue;
+        }
+
+        if (val !== null && typeof val === 'object' && !Array.isArray(val)) {
+          const resolved = {};
+          let hasLangChild = false;
+          for (const [ck, cv] of Object.entries(val)) {
+            if (isLangMap(cv)) {
+              resolved[ck] = resolveLangValue(cv);
+              hasLangChild = true;
+            } else {
+              resolved[ck] = cv;
+            }
+          }
+          if (!target[key]) target[key] = {};
+          mergeOverrides(target[key], hasLangChild ? resolved : val);
+        } else {
+          target[key] = val;
+        }
+      }
+    };
+
+    mergeOverrides(result, profile);
+    return result;
+
+  } catch (error) {
+    console.warn('[Profile] Error applying profile:', error);
+    return resumeData;
+  }
+}
+
 async function loadResume() {
   try {
     const response = await fetch('./data/resume.json');
@@ -618,9 +738,70 @@ async function loadResume() {
       console.warn('[i18n] No content translations found!');
     }
 
+    resumeData = await applyProfileToResume(resumeData);
+
     renderResume(resumeData);
   } catch (error) {
     console.error('Error loading resume:', error);
+  }
+}
+
+async function setupProfileSelector() {
+  try {
+    const response = await fetch('./data/profiles.json');
+    if (!response.ok) return;
+    const profiles = await response.json();
+
+    const defaultKey = profiles._default || 'backend';
+    const urlParams = new URLSearchParams(window.location.search);
+    const currentArea = urlParams.get('area') || defaultKey;
+
+    const nameEl = document.getElementById('name');
+    if (!nameEl) return;
+
+    const wrapper = document.createElement('div');
+    wrapper.className = 'profile-selector';
+    nameEl.parentNode.insertBefore(wrapper, nameEl);
+    wrapper.appendChild(nameEl);
+
+    nameEl.classList.add('profile-selector-trigger');
+
+    const dropdown = document.createElement('div');
+    dropdown.className = 'profile-selector-dropdown';
+
+    for (const [key, profile] of Object.entries(profiles)) {
+      if (key.startsWith('_') || typeof profile !== 'object') continue;
+
+      const item = document.createElement('a');
+      const label = profile._label ? resolveLangValue(profile._label) : key;
+      item.textContent = label;
+      item.className = 'profile-selector-item';
+      if (key === currentArea) item.classList.add('active');
+
+      const newParams = new URLSearchParams(window.location.search);
+      newParams.set('area', key);
+      item.href = `${window.location.pathname}?${newParams.toString()}`;
+
+      dropdown.appendChild(item);
+    }
+
+    wrapper.appendChild(dropdown);
+
+    nameEl.addEventListener('click', (e) => {
+      e.stopPropagation();
+      dropdown.classList.toggle('open');
+    });
+
+    document.addEventListener('click', () => {
+      dropdown.classList.remove('open');
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') dropdown.classList.remove('open');
+    });
+
+  } catch (error) {
+    console.warn('[Profile] Error setting up profile selector:', error);
   }
 }
 
@@ -629,6 +810,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     await window.initI18n();
     setupLanguageSwitcher();
     await loadResume();
+    await setupProfileSelector();
   } catch (error) {
     console.error('Initialization error:', error);
   }

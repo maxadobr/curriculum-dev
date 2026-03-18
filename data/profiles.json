@@ -1,0 +1,432 @@
+{
+  "_default": "backend",
+  "backend": {
+    "_label": {
+      "en-US": "Back-End",
+      "pt-BR": "Back-End"
+    },
+    "personalInfo": {
+      "title": {
+        "en-US": "Back-End Developer | Python, Flask, SQL | Experience in Industrial Project Management",
+        "pt-BR": "Desenvolvedor Back-End | Python, Flask, SQL | Experiência em Gestão de Projetos Industriais"
+      }
+    },
+    "aboutMe": {
+      "professionalSummary": {
+        "en-US": "Software Engineering student with 9+ years of professional experience in product development, project management, and process optimization. Currently building server-side applications with Python, Flask, and SQL, grounded in solid fundamentals including algorithms and data structures. Amplifies productivity by integrating AI models and agents into the development workflow for code review, rapid prototyping, and accelerated learning.",
+        "pt-BR": "Estudante de Engenharia de Software com mais de 9 anos de experiência profissional em desenvolvimento de produtos, gestão de projetos e otimização de processos. Atualmente construindo aplicações server-side com Python, Flask e SQL, com base em fundamentos sólidos incluindo algoritmos e estruturas de dados. Potencializa a produtividade integrando modelos e agentes de IA ao fluxo de desenvolvimento para revisão de código, prototipagem rápida e aprendizado acelerado."
+      },
+      "objective": {
+        "en-US": "Apply server-side development knowledge with Python and SQL to gain practical experience and contribute to a team.",
+        "pt-BR": "Aplicar conhecimentos em desenvolvimento back-end com Python e SQL para ganhar experiência prática e contribuir em equipe."
+      },
+      "keyTechnologies": {
+        "en-US": [
+          "Python",
+          "SQL",
+          "Flask",
+          "Git",
+          "Linux",
+          "Generative AI (Claude, Gemini, GPT)"
+        ],
+        "pt-BR": [
+          "Python",
+          "SQL",
+          "Flask",
+          "Git",
+          "Linux",
+          "IA Generativa (Claude, Gemini, GPT)"
+        ]
+      }
+    },
+    "careerGoals": {
+      "immediate": {
+        "en-US": "Secure an internship opportunity in back-end development.",
+        "pt-BR": "Conseguir oportunidade de estágio em desenvolvimento back-end."
+      },
+      "mediumTerm": {
+        "en-US": "Design and build robust APIs and scalable server-side architectures.",
+        "pt-BR": "Projetar e construir APIs robustas e arquiteturas server-side escaláveis."
+      },
+      "longTerm": {
+        "en-US": "Create reliable backend systems that power efficient and seamless user experiences.",
+        "pt-BR": "Criar sistemas backend confiáveis que alimentem experiências de usuário eficientes e fluidas."
+      }
+    },
+    "_hide": [
+      "skills.frontend.uiDesign"
+    ]
+  },
+  "frontend": {
+    "_label": {
+      "en-US": "Front-End",
+      "pt-BR": "Front-End"
+    },
+    "personalInfo": {
+      "title": {
+        "en-US": "Front-End Developer | JavaScript, HTML, CSS | Experience in Industrial Project Management",
+        "pt-BR": "Desenvolvedor Front-End | JavaScript, HTML, CSS | Experiência em Gestão de Projetos Industriais"
+      }
+    },
+    "aboutMe": {
+      "professionalSummary": {
+        "en-US": "Software Engineering student with 9+ years of professional experience in product development, project management, and process optimization. Currently building responsive web interfaces with HTML, CSS, and JavaScript, with focus on UI/UX principles and accessibility. Amplifies productivity by integrating AI models and agents into the development workflow for code review, rapid prototyping, and accelerated learning.",
+        "pt-BR": "Estudante de Engenharia de Software com mais de 9 anos de experiência profissional em desenvolvimento de produtos, gestão de projetos e otimização de processos. Atualmente construindo interfaces web responsivas com HTML, CSS e JavaScript, com foco em princípios de UI/UX e acessibilidade. Potencializa a produtividade integrando modelos e agentes de IA ao fluxo de desenvolvimento para revisão de código, prototipagem rápida e aprendizado acelerado."
+      },
+      "objective": {
+        "en-US": "Apply frontend development skills to build engaging user interfaces and contribute to a team.",
+        "pt-BR": "Aplicar habilidades de desenvolvimento front-end para criar interfaces envolventes e contribuir em equipe."
+      },
+      "keyTechnologies": {
+        "en-US": [
+          "HTML5",
+          "CSS3",
+          "JavaScript",
+          "Figma",
+          "Git",
+          "Generative AI (Claude, Gemini, GPT)"
+        ],
+        "pt-BR": [
+          "HTML5",
+          "CSS3",
+          "JavaScript",
+          "Figma",
+          "Git",
+          "IA Generativa (Claude, Gemini, GPT)"
+        ]
+      }
+    },
+    "careerGoals": {
+      "immediate": {
+        "en-US": "Secure an internship opportunity in front-end development.",
+        "pt-BR": "Conseguir oportunidade de estágio em desenvolvimento front-end."
+      },
+      "mediumTerm": {
+        "en-US": "Build design systems and component libraries that scale across products.",
+        "pt-BR": "Criar design systems e bibliotecas de componentes que escalem entre produtos."
+      },
+      "longTerm": {
+        "en-US": "Deliver polished, accessible interfaces that users genuinely enjoy using.",
+        "pt-BR": "Entregar interfaces polidas e acessíveis que os usuários genuinamente gostem de usar."
+      }
+    },
+    "_hide": [
+      "skills.backend"
+    ]
+  },
+  "fullstack": {
+    "_label": {
+      "en-US": "Full-Stack",
+      "pt-BR": "Full-Stack"
+    },
+    "personalInfo": {
+      "title": {
+        "en-US": "Full-Stack Developer | JavaScript, Python, HTML, CSS | Experience in Industrial Project Management",
+        "pt-BR": "Desenvolvedor Full-Stack | JavaScript, Python, HTML, CSS | Experiência em Gestão de Projetos Industriais"
+      }
+    },
+    "aboutMe": {
+      "professionalSummary": {
+        "en-US": "Software Engineering student with 9+ years of professional experience in product development, project management, and process optimization. Currently building full-stack web applications with HTML, CSS, JavaScript, Python, and SQL, grounded in solid fundamentals including algorithms and data structures. Amplifies productivity by integrating AI models and agents into the development workflow for code review, rapid prototyping, and accelerated learning.",
+        "pt-BR": "Estudante de Engenharia de Software com mais de 9 anos de experiência profissional em desenvolvimento de produtos, gestão de projetos e otimização de processos. Atualmente construindo aplicações web full-stack com HTML, CSS, JavaScript, Python e SQL, com base em fundamentos sólidos incluindo algoritmos e estruturas de dados. Potencializa a produtividade integrando modelos e agentes de IA ao fluxo de desenvolvimento para revisão de código, prototipagem rápida e aprendizado acelerado."
+      },
+      "objective": {
+        "en-US": "Apply full-stack web development knowledge to gain practical experience and contribute to a team.",
+        "pt-BR": "Aplicar conhecimentos em desenvolvimento web full-stack para ganhar experiência prática e contribuir em equipe."
+      },
+      "keyTechnologies": {
+        "en-US": [
+          "HTML5",
+          "CSS3",
+          "JavaScript",
+          "Python",
+          "SQL",
+          "Flask",
+          "Git",
+          "Linux",
+          "Generative AI (Claude, Gemini, GPT)"
+        ],
+        "pt-BR": [
+          "HTML5",
+          "CSS3",
+          "JavaScript",
+          "Python",
+          "SQL",
+          "Flask",
+          "Git",
+          "Linux",
+          "IA Generativa (Claude, Gemini, GPT)"
+        ]
+      }
+    },
+    "careerGoals": {
+      "immediate": {
+        "en-US": "Secure an internship opportunity in full-stack web development.",
+        "pt-BR": "Conseguir oportunidade de estágio em desenvolvimento web full-stack."
+      },
+      "mediumTerm": {
+        "en-US": "Expand into mobile and desktop development with end-to-end ownership.",
+        "pt-BR": "Expandir para desenvolvimento mobile e desktop com domínio ponta a ponta."
+      },
+      "longTerm": {
+        "en-US": "Architect complete solutions that connect elegant interfaces to powerful backends.",
+        "pt-BR": "Arquitetar soluções completas que conectem interfaces elegantes a backends poderosos."
+      }
+    },
+    "_hide": []
+  },
+  "dados": {
+    "_label": {
+      "en-US": "Data",
+      "pt-BR": "Dados"
+    },
+    "personalInfo": {
+      "title": {
+        "en-US": "Data Analyst | Python, SQL | Experience in Product Development and Process Optimization",
+        "pt-BR": "Analista de Dados | Python, SQL | Experiência em Desenvolvimento de Produtos e Otimização de Processos"
+      }
+    },
+    "aboutMe": {
+      "professionalSummary": {
+        "en-US": "Software Engineering student with 9+ years of professional experience in product development, project management, and process optimization. Currently working with Python and SQL for data analysis and processing, grounded in solid fundamentals including algorithms and data structures. Amplifies productivity by integrating AI models and agents into the development workflow for data-driven insights and accelerated learning.",
+        "pt-BR": "Estudante de Engenharia de Software com mais de 9 anos de experiência profissional em desenvolvimento de produtos, gestão de projetos e otimização de processos. Atualmente trabalhando com Python e SQL para análise e processamento de dados, com base em fundamentos sólidos incluindo algoritmos e estruturas de dados. Potencializa a produtividade integrando modelos e agentes de IA ao fluxo de desenvolvimento para insights baseados em dados e aprendizado acelerado."
+      },
+      "objective": {
+        "en-US": "Apply data analysis and processing skills with Python and SQL to generate insights and contribute to a team.",
+        "pt-BR": "Aplicar habilidades em análise e processamento de dados com Python e SQL para gerar insights e contribuir em equipe."
+      },
+      "keyTechnologies": {
+        "en-US": [
+          "Python",
+          "SQL",
+          "Excel",
+          "Git",
+          "Linux",
+          "Generative AI (Claude, Gemini, GPT)"
+        ],
+        "pt-BR": [
+          "Python",
+          "SQL",
+          "Excel",
+          "Git",
+          "Linux",
+          "IA Generativa (Claude, Gemini, GPT)"
+        ]
+      }
+    },
+    "careerGoals": {
+      "immediate": {
+        "en-US": "Secure an internship opportunity in data analysis or data engineering.",
+        "pt-BR": "Conseguir oportunidade de estágio em análise de dados ou engenharia de dados."
+      },
+      "mediumTerm": {
+        "en-US": "Build data pipelines and analytical tools that drive strategic decisions.",
+        "pt-BR": "Construir pipelines de dados e ferramentas analíticas que embasem decisões estratégicas."
+      },
+      "longTerm": {
+        "en-US": "Create data-driven solutions that deliver measurable impact and efficiency.",
+        "pt-BR": "Criar soluções orientadas a dados que entreguem impacto mensurável e eficiência."
+      }
+    },
+    "_hide": [
+      "skills.frontend",
+      "projects.Portfolio",
+      "projects.League of Building",
+      "projects.Pokedex",
+      "education.techCourses.Bootcamp Santander*",
+      "education.techCourses.React*"
+    ]
+  },
+  "tech": {
+    "_label": {
+      "en-US": "General Tech",
+      "pt-BR": "Tecnologia Geral"
+    },
+    "personalInfo": {
+      "title": {
+        "en-US": "Technology Intern | JavaScript, Python, HTML, CSS | Experience in Industrial Project Management",
+        "pt-BR": "Estagiário de Tecnologia | JavaScript, Python, HTML, CSS | Experiência em Gestão de Projetos Industriais"
+      }
+    },
+    "aboutMe": {
+      "professionalSummary": {
+        "en-US": "Software Engineering student with 9+ years of professional experience in product development, project management, and process optimization. Currently building web applications with HTML, CSS, JavaScript, and Python, grounded in solid fundamentals including algorithms and data structures. Amplifies productivity by integrating AI models and agents into the development workflow for code review, rapid prototyping, and accelerated learning.",
+        "pt-BR": "Estudante de Engenharia de Software com mais de 9 anos de experiência profissional em desenvolvimento de produtos, gestão de projetos e otimização de processos. Atualmente construindo aplicações web com HTML, CSS, JavaScript e Python, com base em fundamentos sólidos incluindo algoritmos e estruturas de dados. Potencializa a produtividade integrando modelos e agentes de IA ao fluxo de desenvolvimento para revisão de código, prototipagem rápida e aprendizado acelerado."
+      },
+      "objective": {
+        "en-US": "Apply technology knowledge to gain practical experience and contribute to a team.",
+        "pt-BR": "Aplicar conhecimentos em tecnologia para ganhar experiência prática e contribuir em equipe."
+      },
+      "keyTechnologies": {
+        "en-US": [
+          "HTML5",
+          "CSS3",
+          "JavaScript",
+          "Python",
+          "SQL",
+          "Git",
+          "Linux",
+          "Generative AI (Claude, Gemini, GPT)"
+        ],
+        "pt-BR": [
+          "HTML5",
+          "CSS3",
+          "JavaScript",
+          "Python",
+          "SQL",
+          "Git",
+          "Linux",
+          "IA Generativa (Claude, Gemini, GPT)"
+        ]
+      }
+    },
+    "careerGoals": {
+      "immediate": {
+        "en-US": "Secure an internship opportunity in technology.",
+        "pt-BR": "Conseguir oportunidade de estágio em tecnologia."
+      },
+      "mediumTerm": {
+        "en-US": "Transition web knowledge to develop PC and Mobile applications.",
+        "pt-BR": "Transicionar conhecimento de web para desenvolver aplicativos PC e Mobile."
+      },
+      "longTerm": {
+        "en-US": "Create solutions that deliver a pleasant, efficient, and clean user experience.",
+        "pt-BR": "Criar soluções que entreguem uma experiência prazerosa, eficiente e limpa ao usuário."
+      }
+    },
+    "_hide": []
+  },
+  "projetista": {
+    "_label": {
+      "en-US": "Product Designer",
+      "pt-BR": "Projetista de Produtos"
+    },
+    "personalInfo": {
+      "title": {
+        "en-US": "Product Designer | AutoCAD, SolidWorks, FreeCAD | 9+ Years in Industrial Product Development",
+        "pt-BR": "Projetista de Produtos | AutoCAD, SolidWorks, FreeCAD | 9+ Anos em Desenvolvimento de Produtos Industriais"
+      }
+    },
+    "aboutMe": {
+      "professionalSummary": {
+        "en-US": "Product Development professional with 9+ years of experience in mechanical design, technical documentation, and process optimization across automotive and construction industries. Proficient in AutoCAD 2D, SolidWorks 3D, and FreeCAD for 3D modeling, technical drawings, and virtual prototyping. Currently pursuing a Software Engineering degree to integrate digital solutions into industrial product development.",
+        "pt-BR": "Profissional de Desenvolvimento de Produtos com mais de 9 anos de experiência em projeto mecânico, documentação técnica e otimização de processos nas indústrias automotiva e de construção civil. Proficiente em AutoCAD 2D, SolidWorks 3D e FreeCAD para modelagem 3D, desenhos técnicos e prototipagem virtual. Atualmente cursando Engenharia de Software para integrar soluções digitais ao desenvolvimento de produtos industriais."
+      },
+      "objective": {
+        "en-US": "Apply product design and engineering expertise in industrial environments.",
+        "pt-BR": "Aplicar experiência em projeto de produtos e engenharia em ambientes industriais."
+      },
+      "keyTechnologies": {
+        "en-US": [
+          "AutoCAD 2D",
+          "SolidWorks 3D",
+          "FreeCAD",
+          "Advanced Excel",
+          "Technical Documentation",
+          "MS Office"
+        ],
+        "pt-BR": [
+          "AutoCAD 2D",
+          "SolidWorks 3D",
+          "FreeCAD",
+          "Excel Avançado",
+          "Documentação Técnica",
+          "MS Office"
+        ]
+      }
+    },
+    "skills": {
+      "engineeringDesign": {
+        "tools": {
+          "en-US": [
+            "AutoCAD 2D",
+            "SolidWorks 3D",
+            "FreeCAD"
+          ],
+          "pt-BR": [
+            "AutoCAD 2D",
+            "SolidWorks 3D",
+            "FreeCAD"
+          ]
+        },
+        "skills": {
+          "en-US": [
+            "3D Technical Drawings",
+            "Mechanical Projects",
+            "Reading and interpretation of technical drawings",
+            "3D Modeling",
+            "Virtual Prototyping"
+          ],
+          "pt-BR": [
+            "Desenhos Técnicos 3D",
+            "Projetos Mecânicos",
+            "Leitura e interpretação de desenho técnico",
+            "Modelagem 3D",
+            "Prototipagem Virtual"
+          ]
+        },
+        "processes": {
+          "en-US": [
+            "Machining Processes",
+            "Mechanical Technology",
+            "Applied Mathematics",
+            "Technical Documentation"
+          ],
+          "pt-BR": [
+            "Processos de Usinagem",
+            "Tecnologia Mecânica",
+            "Matemática Aplicada",
+            "Documentação Técnica"
+          ]
+        }
+      },
+      "officeProductivity": {
+        "tools": {
+          "en-US": [
+            "Advanced Excel",
+            "MS Office Suite",
+            "Libre Office"
+          ],
+          "pt-BR": [
+            "Excel Avançado",
+            "Pacote MS Office",
+            "Libre Office"
+          ]
+        }
+      }
+    },
+    "careerGoals": {
+      "immediate": {
+        "en-US": "Join a team where I can apply my product development expertise, structure processes, and create innovative solutions.",
+        "pt-BR": "Integrar uma equipe onde possa aplicar minha experiência em desenvolvimento de produtos, estruturar processos e criar soluções inovadoras."
+      },
+      "mediumTerm": {
+        "en-US": "Optimize existing processes, implement robust technical documentation, and help the company reach new levels of operational excellence.",
+        "pt-BR": "Otimizar processos existentes, implementar documentação técnica robusta e ajudar a empresa a alcançar novos patamares de excelência operacional."
+      },
+      "longTerm": {
+        "en-US": "Drive quality improvement and cost reduction through systematic product design and engineering solutions.",
+        "pt-BR": "Impulsionar melhoria da qualidade e redução de custos através de soluções sistemáticas de projeto e engenharia de produtos."
+      }
+    },
+    "_hide": [
+      "skills.frontend",
+      "skills.backend",
+      "skills.computerScienceFundamentals",
+      "skills.developmentTools.generativeAI",
+      "skills.developmentTools.versionControl",
+      "skills.developmentTools.terminal",
+      "skills.developmentTools.editors",
+      "skills.developmentTools.operatingSystems",
+      "skills.softSkills",
+      "projects.Curriculum Developer",
+      "projects.Clarity Board",
+      "projects.Portfolio",
+      "projects.League of Building",
+      "projects.Pokedex",
+      "education.techCourses.CS50x*",
+      "education.techCourses.Bootcamp Santander*",
+      "education.techCourses.React*"
+    ]
+  }
+}

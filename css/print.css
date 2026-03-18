@@ -78,6 +78,8 @@ h5,
 h6 {
   page-break-after: avoid;
   break-after: avoid;
+  margin-top: 0 !important;
+  padding-top: 0 !important;
 }
 
 /* Ensure text is scannable by ATS - high contrast black text */
@@ -117,7 +119,7 @@ section h2 {
 .divider {
   background: #333333 !important;
   height: 2px !important;
-  margin: 2mm 0 !important;
+  margin: 1mm 0 !important;
 }
 
 /* =============================================
@@ -128,33 +130,37 @@ section h2 {
 .section,
 section,
 .skills-languages-row {
-  margin-bottom: 3mm !important;
-  padding-bottom: 1mm !important;
+  margin-top: 0 !important;
+  margin-bottom: 2mm !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
 }
 
 /* Compact section headers */
 section h2 {
-  font-size: 12pt !important;
-  margin-bottom: 2mm !important;
-  padding-bottom: 1mm !important;
+  font-size: 11pt !important;
+  margin-top: 0 !important;
+  margin-bottom: 1.5mm !important;
+  padding-top: 0 !important;
+  padding-bottom: 0.5mm !important;
   border-bottom-width: 1px !important;
 }
 
 /* Header compaction and strictly left-align */
 .header {
-  margin-bottom: 2mm !important;
+  margin-bottom: 1mm !important;
   text-align: left !important;
   align-items: flex-start !important;
 }
 
 #name {
-  font-size: 16pt !important;
-  margin-bottom: 1mm !important;
+  font-size: 14pt !important;
+  margin-bottom: 0.5mm !important;
 }
 
 /* Contact section compact */
 .persona-info-compact-section {
-  margin-bottom: 2mm !important;
+  margin-bottom: 1mm !important;
 }
 
 #contact-compact-list {
@@ -169,7 +175,7 @@ section h2 {
 
 /* About section compact */
 .about-section {
-  margin-bottom: 3mm !important;
+  margin-bottom: 1.5mm !important;
 }
 
 #about-me-container {
@@ -179,9 +185,9 @@ section h2 {
 
 #about-me-container h3,
 #about-me-container h4 {
-  font-size: 10pt !important;
-  margin-top: 2mm !important;
-  margin-bottom: 1mm !important;
+  font-size: 9.5pt !important;
+  margin-top: 0.5mm !important;
+  margin-bottom: 0.5mm !important;
 }
 
 /* =============================================
@@ -192,19 +198,19 @@ section h2 {
 .professional-skills h2,
 .languages h2 {
   font-size: 10pt !important;
-  margin-bottom: 1mm !important;
+  margin-bottom: 0.5mm !important;
 }
 
 /* Skills grid - flexible columns based on content width */
 .skills-grid {
   display: flex !important;
   flex-wrap: wrap !important;
-  gap: 1mm 3mm !important;
+  gap: 0 2mm !important;
 }
 
 .skills-grid>div {
   flex: 0 0 auto !important;
-  padding: 0.5mm !important;
+  padding: 0 !important;
   border: none !important;
   background: none !important;
 }
@@ -218,7 +224,7 @@ section h2 {
 .skills-grid>div>h3 {
   font-size: 8pt !important;
   font-weight: 600 !important;
-  margin-bottom: 0.5mm !important;
+  margin-bottom: 0 !important;
   padding-bottom: 0 !important;
   border-bottom: none !important;
 }
@@ -291,7 +297,7 @@ section h2 {
 /* Skills-languages row - block layout for ATS */
 .skills-languages-row {
   display: block !important;
-  margin-bottom: 2mm !important;
+  margin-bottom: 1mm !important;
 }
 
 .skills-languages-row>section {
@@ -375,7 +381,7 @@ section h2 {
 .education-details-inline {
   display: inline !important;
   font-size: 8pt !important;
-  margin-top: 1mm !important;
+  margin-top: 0.5mm !important;
   line-height: 1.3 !important;
 }
 
@@ -408,8 +414,8 @@ section h2 {
 .education-minor-grid {
   display: block !important;
   gap: 0 !important;
-  margin-top: 2mm !important;
-  padding-top: 2mm !important;
+  margin-top: 0.5mm !important;
+  padding-top: 0.5mm !important;
 }
 
 .education-minor-inline-item {
@@ -419,7 +425,7 @@ section h2 {
 }
 
 .education-card-minor {
-  padding: 1mm 2mm !important;
+  padding: 0.5mm 1mm !important;
   max-width: 120px !important;
 }
 
@@ -474,7 +480,7 @@ section h2 {
 .entry-details {
   display: block !important;
   font-size: 8pt !important;
-  margin-top: 2mm !important;
+  margin-top: 0.5mm !important;
   padding-left: 0 !important;
 }
 
@@ -497,7 +503,7 @@ section h2 {
 
 /* Personal info compact */
 .personal-info {
-  margin-bottom: 2mm !important;
+  margin-bottom: 1mm !important;
 }
 
 .business-card {
@@ -525,7 +531,7 @@ section h2 {
 
 /* Availability inline single-line compact */
 .availability {
-  margin-bottom: 2mm !important;
+  margin-bottom: 1mm !important;
 }
 
 #availability {
@@ -547,7 +553,7 @@ section h2 {
   padding: 0 !important;
 }
 
-#availability>div>h3::after {
+#availability>div>h3:not(:only-child)::after {
   content: ": " !important;
   color: #4a3520 !important;
 }
@@ -573,7 +579,7 @@ section h2 {
 }
 
 .career-goals {
-  margin-bottom: 2mm !important;
+  margin-bottom: 1mm !important;
 }
 
 /* Remove decorative elements that confuse ATS */
@@ -596,7 +602,7 @@ section h2 {
 .experience-card-major {
   border-top: none !important;
   padding-top: 0 !important;
-  margin-bottom: 1.5mm !important;
+  margin-bottom: 0.5mm !important;
 }
 
 .education-card-major h3,
@@ -735,14 +741,27 @@ section:has(.projects-grid) {
   display: block !important;
 }
 
-.education-card,
-.experience-card {
+.education-card {
   page-break-inside: avoid !important;
   break-inside: avoid !important;
 }
 
-.education-grid>*,
-.experience-grid>* {
+.experience-card {
+  page-break-inside: avoid !important;
+  break-inside: avoid !important;
+  border-bottom: 1px dotted #cccccc !important;
+  padding-bottom: 0.5mm !important;
+  margin-bottom: 0.5mm !important;
+  border-radius: 0 !important;
+}
+
+.experience-card:last-child {
+  border-bottom: none !important;
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.education-grid>* {
   margin-bottom: var(--spacing-xs);
 }
 

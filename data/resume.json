@@ -1,18 +1,5 @@
 {
-    "aboutMe": {
-        "professionalSummary": "Software Engineering student with 9+ years of professional experience in product development, project management, and process optimization. Currently building web applications with HTML, CSS, JavaScript, and Python, grounded in solid fundamentals including algorithms and data structures. Amplifies productivity by integrating AI models and agents into the development workflow for code review, rapid prototyping, and accelerated learning.",
-        "objective": "Apply web development knowledge to gain practical experience and contribute to a team.",
-        "keyTechnologies": [
-            "HTML5",
-            "CSS3",
-            "JavaScript",
-            "Python",
-            "SQL",
-            "Git",
-            "Linux",
-            "Generative AI (Claude, Gemini, GPT)"
-        ]
-    },
+    "aboutMe": {},
     "projects": [
         {
             "name": "Curriculum Developer",
@@ -480,7 +467,6 @@
         "fullName": "Marcelo Machado",
         "username": "@maxadobr",
         "photo": "https://avatars.githubusercontent.com/u/150363449?v=4",
-        "title": "Front-End Developer | JavaScript, HTML, CSS | Experience in Industrial Project Management and Execution",
         "year": 1997,
         "month": 1,
         "location": {
@@ -494,11 +480,7 @@
             "github": "https://github.com/maxadobr"
         }
     },
-    "careerGoals": {
-        "immediate": "Secure an internship opportunity in web development.",
-        "mediumTerm": "Transition web knowledge to develop PC and Mobile apps.",
-        "longTerm": "Create solutions that deliver a pleasant, efficient, and clean user experience."
-    },
+    "careerGoals": {},
     "availability": {
         "weeklyHours": "20-30h",
         "modalities": [
