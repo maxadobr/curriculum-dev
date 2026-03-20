@@ -426,7 +426,8 @@
       "projects.Pokedex",
       "education.techCourses.CS50x*",
       "education.techCourses.Bootcamp Santander*",
-      "education.techCourses.React*"
+      "education.techCourses.React*",
+      "availability.weeklyHours"
     ]
   }
 }
